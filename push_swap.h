@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/03 14:46:43 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:08:04 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ int		**init_stack_b(int **stack_a);
 
 size_t	get_arr_size(int **stack);
 
-char	*get_sort_commands(int **stack_a);
+void	get_sort_commands(int **stack_a);
 
 char	*sort_3(int **a, size_t count);
+
+char	*sort_5(int **a, size_t count);
+
+char	*sort_large(int **a, size_t count);
 
 #endif

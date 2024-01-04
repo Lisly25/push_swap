@@ -6,23 +6,34 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:36:10 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/03 14:50:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/03 15:49:50 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*get_sort_commands(int **stack_a)
+void	get_sort_commands(int **stack_a)
 {
 	size_t	i;
+	char	*result;
 
 	i = get_arr_size(stack_a);
 	if (i <= 3)
-		return (sort_3(stack_a, i));
+	{
+		result = sort_3(stack_a, i);
+		ft_printf("%s", result);
+	}
 	if (i <= 5)
-		return (sort_5(stack_a, i));
-	if (i <= 100)
-		return (sort_100(stack_a));
+	{
+		result = sort_5(stack_a, i);
+		ft_printf("%s", result);
+		free(result);
+	}
 	else
-		return (sort_large(stack_a));
+	{
+		result = sort_large(stack_a, i);
+		ft_printf("%s", result);
+		free(result);
+	}
+	return ;
 }
