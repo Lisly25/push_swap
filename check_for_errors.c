@@ -1,39 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_for_errors.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 11:40:29 by skorbai          ###   ########.fr       */
+/*   Created: 2024/01/04 11:24:40 by skorbai           #+#    #+#             */
+/*   Updated: 2024/01/04 11:41:23 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+static int	check_for_duplicates(int **a, size_t count)
 {
-	int		**stack_a;
-	char	*result;
+	size_t	i;
+	size_t	j;
 
-	if (argc < 1)
+	i = 0;
+	j = 0;
+	while (i < count)
 	{
-		ft_putstr_fd(argv[1], 1);
-		return (1);
+		while (j < count)
+		{
+			if (a[i][0] == a[j][0])
+				return (1);
+			j++;
+		}
+		j = i;
+		i++;
 	}
-	if (argc == 2)
-		stack_a = get_str(argv[1]);
-	else
-		stack_a = get_list((argc - 1), argv, 1);
-	if (stack_a == NULL)
+	return (0);
+}
+
+int	check_for_errors(int **a)
+{
+	size_t	stack_size;
+
+	stack_size = get_arr_size(a);
+	if (check_for_duplicates(a, stack_size) == 1)
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
-	if (check_for_errors(stack_a) == 1)
-		return (1);
-	get_sort_commands(stack_a);
-	free_stack(stack_a);
 	return (0);
 }

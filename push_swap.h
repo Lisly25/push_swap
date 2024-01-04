@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 09:08:04 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 11:38:54 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ char	*sort_3(int **a, size_t count);
 char	*sort_5(int **a, size_t count);
 
 char	*sort_large(int **a, size_t count);
+
+int		check_for_errors(int **a);
 
 #endif
