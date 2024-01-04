@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 12:45:42 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:34:11 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	if (argc < 1)
 	{
 		ft_putstr_fd(argv[1], 1);
-		return (1);
+		exit (1);
 	}
 	if (argc == 2)
 		stack_a = get_str(argv[1]);
@@ -29,11 +29,11 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL)
 	{
 		ft_putendl_fd("Error", 2);
-		return (1);
+		exit (1);
 	}
 	if (check_for_errors(stack_a) == 1)
-		return (1);
+		exit (1);
 	get_sort_commands(stack_a);
 	free_stack(stack_a);
-	return (0);
+	exit (0);
 }
