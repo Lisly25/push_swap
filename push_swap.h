@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 11:38:54 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:29:05 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,9 @@ char	*sort_5(int **a, size_t count);
 char	*sort_large(int **a, size_t count);
 
 int		check_for_errors(int **a);
+
+size_t	count_of_greater_than(int **a, int num, size_t count);
+
+size_t	range_count_of_greater_than(int **a, int num, int start, int end);
 
 #endif

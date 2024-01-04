@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:49:26 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 11:19:23 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:33:38 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,48 @@ static char	*sort_last_3(int **a, int i)
 	return ("");
 }
 
-static size_t	count_of_greater_than(int **a, int num, size_t count)
+char	*last_sort(int **a, size_t greater_than)
 {
-	size_t	i;
-	size_t	greater_than;
+	char	*result;
 
-	i = 0;
-	greater_than = 0;
-	while (i < count)
-	{
-		if (a[i][0] < num)
-			greater_than++;
-		i++;
-	}
-	return (greater_than);
+	if (greater_than == 0)
+		result = ft_strdup("pa\n");
+	if (greater_than == 1)
+		result = ft_strdup("pa\nsa\n");
+	if (greater_than == 2)
+		result = ft_strdup("pa\nsa\nra\nsa\nrra\n");
+	if (greater_than == 3)
+		result = ft_strdup("rra\npa\nra\nra\n");
+	if (greater_than == 4)
+		result = ft_strdup("pa\nra\n");
+	return (result);
 }
 
+char	*sort_first_two(int **a, size_t count)
+{
+	size_t	first_greater_than;
+	size_t	second_greater_than;
+	char	*result;
+	char	*temp;
+	char	*sort_2_of_5;
+
+	first_greater_than = range_count_of_greater_than(a, a[0][0], 0, 4);
+	second_greater_than = range_count_of_greater_than(a, a[1][0], 1, 4);
+	if (second_greater_than == 3)
+		result = ft_strjoin("pa\n", "ra\n");
+	if (second_greater_than == 0)
+		result = ft_strdup("pa\n");
+	if (second_greater_than == 1)
+		result = ft_strjoin("pa\n", "sa\n");
+	if (second_greater_than == 2)
+		result = ft_strjoin("rra\npa\n", "ra\nra\n");
+	temp = ft_strdup(result);
+	sort_2_of_5 = last_sort(a, first_greater_than);
+	result = ft_strjoin(temp, sort_2_of_5);
+	free(temp);
+	free(sort_2_of_5);
+	return (result);
+}
 
 char	*sort_all(int **a, size_t count)
 {
@@ -70,7 +96,7 @@ char	*sort_all(int **a, size_t count)
 	}
 	if (count == 5)
 	{
-		result = ft_strdup("Not yet coded");
+		result = sort_first_two(a, count);
 	}
 	return (result);
 }
