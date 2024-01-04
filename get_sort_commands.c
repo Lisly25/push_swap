@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:36:10 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/03 15:49:50 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:16:38 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ void	get_sort_commands(int **stack_a)
 		result = sort_3(stack_a, i);
 		ft_printf("%s", result);
 	}
-	if (i <= 5)
+	else if (i <= 5)
 	{
 		result = sort_5(stack_a, i);
 		ft_printf("%s", result);
-		free(result);
+		//free(result);
 	}
 	else
 	{
 		result = sort_large(stack_a, i);
 		ft_printf("%s", result);
-		free(result);
+		//free(result);
 	}
 	return ;
 }
