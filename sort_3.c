@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:41:55 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/03 15:34:33 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:11:39 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ char	*sort_3(int **a, size_t count)
 		return ("ra\n");
 	if (a[0][0] > a[1][0] && a[1][0] > a[2][0] && a[0][0] > a[2][0])
 		return ("ra\nsa\n");
+	return ("");
 }
