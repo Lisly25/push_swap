@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/05 11:56:55 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/05 13:51:36 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,27 @@ int	**init_stack_b(int **stack_a)
 	}
 	stack_b[j] = NULL;
 	return (stack_b);
+}
+
+int	**init_stack_a(int argc, char **argv)
+{
+	int		**stack_a;
+	size_t	i;
+
+	i = 1;
+	if (argc < 1)
+		exit (1);
+	if (argc == 2)
+		stack_a = get_str(argv[1]);
+	else
+	{
+		while (argv[i])
+		{
+			if (check_if_int(argv[i]) == 1)
+				return (NULL);
+			i++;
+		}
+		stack_a = get_list((argc - 1), argv, 1);
+	}
+	return (stack_a);
 }

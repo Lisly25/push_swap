@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/05 11:59:51 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/05 13:46:10 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 void	free_stack(int **stack);
 
 void	free_list(char **list);
+
+int		**init_stack_a(int argc, char **argv);
 
 int		**get_list(int argc, char **argv, size_t i);
 
