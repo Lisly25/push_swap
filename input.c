@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/03 13:34:17 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/05 11:56:55 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,22 @@ int	**get_str(char *str)
 	int		arr_len;
 
 	arr_len = 0;
+	if (check_if_num(str) == 1)
+		return (NULL);
 	list = ft_split(str, ' ');
 	if (list == NULL)
 		return (NULL);
 	while (list[arr_len] != NULL)
+	{
+		if (check_if_int(list[arr_len]) == 1)
+		{
+			free_list(list);
+			return (NULL);
+		}
 		arr_len++;
+	}
 	stack_a = get_list(arr_len, list, 0);
+	free_list(list);
 	if (stack_a == NULL)
 		return (NULL);
 	return (stack_a);

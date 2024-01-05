@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/05 10:48:55 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/05 11:59:51 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "limits.h"
 
 void	free_stack(int **stack);
+
+void	free_list(char **list);
 
 int		**get_list(int argc, char **argv, size_t i);
 
@@ -36,6 +38,10 @@ char	*sort_5(int **a, size_t count);
 char	*sort_large(int **a, size_t count);
 
 int		check_for_errors(int **a);
+
+int		check_if_num(char *str);
+
+int		check_if_int(char *num);
 
 size_t	count_of_greater_than(int **a, int num, size_t count);
 
