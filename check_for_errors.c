@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:24:40 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 12:45:29 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/05 10:58:14 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,32 @@ static int	check_if_already_sorted(int **a, size_t count)
 		j++;
 	}
 	return (1);
+}
+
+int	check_if_num(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (ft_isdigit(str[i]) == 0 && str[i] != ' ')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	check_if_int(char *num)
+{
+	int		number;
+	char	*num_2;
+
+	number = ft_atoi(num);
+	num_2 = ft_itoa(number);
+	if (ft_strncmp(num, num_2, ft_strlen(num)) != 0)
+		return (1);
+	return (0);
 }
 
 int	check_for_errors(int **a)
