@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:06:39 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/06 11:51:35 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/06 11:58:31 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ static int	get_min(int **a, size_t count)
 	int		min;
 	size_t	i;
 
-	min = 0;
+	i = 0;
+	min = INT_MAX;
 	while (i < count)
 	{
-		if (a[0][0] < min)
+		if (a[i][0] < min)
 			min = a[i][0];
 		i++;
 	}
@@ -32,7 +33,8 @@ static int	get_max(int **a, size_t count)
 	int		max;
 	size_t	i;
 
-	max = 0;
+	i = 0;
+	max = INT_MIN;
 	while (i < count)
 	{
 		if (a[i][0] > max)
@@ -77,6 +79,6 @@ char	*sort_large(int **a, size_t count)
 
 	max = get_max(a, count);
 	min = get_min(a, count);
-	ft_printf("%d %d\n", a[0][0], count);
+	ft_printf("%d %d %d %d\n", a[0][0], count, max, min);
 	return ("Nothing for now\n");
 }
