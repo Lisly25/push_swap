@@ -1,0 +1,7 @@
+****for sorting large numbers****
+
+get_moves_to_push_first_num(min value, int **a, size_t list_size)
+
+get_moves_to_push_rest
+
+get_effective_list_sizes
