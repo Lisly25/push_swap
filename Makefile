@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/04 14:45:27 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/10 10:13:51 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS = main.c \
 	sort_5.c \
 	sort_large.c \
 	check_for_errors.c \
-	utils.c
+	sort_small_utils.c \
+	sort_large_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

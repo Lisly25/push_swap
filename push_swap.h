@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/05 13:46:10 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/10 15:55:39 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,53 @@
 # include <stdlib.h>
 # include "limits.h"
 
-void	free_stack(int **stack);
+typedef struct s_sort_status {
+	ssize_t	pair_lower;
+	ssize_t	pair_higher;
+	ssize_t	prev_low;
+	ssize_t	prev_high;
+	size_t	real_size;
+	char	prev_method;
+}	t_sort_status;
 
-void	free_list(char **list);
+void			free_stack(int **stack);
 
-int		**init_stack_a(int argc, char **argv);
+void			free_list(char **list);
 
-int		**get_list(int argc, char **argv, size_t i);
+int				**init_stack_a(int argc, char **argv);
 
-int		**get_str(char *str);
+int				**get_list(int argc, char **argv, size_t i);
 
-int		**init_stack_b(int **stack_a);
+int				**get_str(char *str);
 
-size_t	get_arr_size(int **stack);
+int				**init_stack_b(int **stack_a);
 
-void	get_sort_commands(int **stack_a);
+size_t			get_arr_size(int **stack);
 
-char	*sort_3(int **a, size_t count);
+void			get_sort_commands(int **stack_a);
 
-char	*sort_5(int **a, size_t count);
+char			*sort_3(int **a, size_t count);
 
-char	*sort_large(int **a, size_t count);
+char			*sort_5(int **a, size_t count);
 
-int		check_for_errors(int **a);
+void			sort_large(int **a, size_t count);
 
-int		check_if_num(char *str);
+int				check_for_errors(int **a);
 
-int		check_if_int(char *num);
+int				check_if_num(char *str);
 
-size_t	count_of_greater_than(int **a, int num, size_t count);
+int				check_if_int(char *num);
 
-size_t	range_count_of_greater_than(int **a, int num, int start, int end);
+size_t			count_of_greater_than(int **a, int num, size_t count);
+
+size_t			range_count_of_greater_than(int **a, int num, int start, int end);
+
+void			print_n_commands(char *command, int n);
+
+ssize_t			get_next_min(int **a, size_t size, int prev_smallest);
+
+ssize_t			get_min(int **a, size_t count);
+
+t_sort_status	*init_sort_status(int **a, size_t size);
 
 #endif

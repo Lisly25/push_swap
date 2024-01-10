@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_sort_commands.c                                :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:36:10 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/10 10:05:16 by skorbai          ###   ########.fr       */
+/*   Created: 2024/01/04 14:45:01 by skorbai           #+#    #+#             */
+/*   Updated: 2024/01/10 10:12:17 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	get_sort_commands(int **stack_a)
+size_t	count_of_greater_than(int **a, int num, size_t count)
 {
 	size_t	i;
-	char	*result;
+	size_t	greater_than;
 
-	i = get_arr_size(stack_a);
-	if (i <= 3)
+	i = 0;
+	greater_than = 0;
+	while (i < count)
 	{
-		result = sort_3(stack_a, i);
-		ft_printf("%s", result);
+		if (a[i][0] < num)
+			greater_than++;
+		i++;
 	}
-	else if (i <= 5)
+	return (greater_than);
+}
+
+size_t	range_count_of_greater_than(int **a, int num, int start, int end)
+{
+	size_t	greater_than;
+
+	greater_than = 0;
+	while (start <= end)
 	{
-		result = sort_5(stack_a, i);
-		ft_printf("%s", result);
-		free(result);
+		if (a[start][0] < num)
+			greater_than++;
+		start++;
 	}
-	else
-		sort_large(stack_a, i);
-	return ;
+	return (greater_than);
 }
