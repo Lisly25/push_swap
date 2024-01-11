@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:49:26 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/04 15:33:38 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/11 09:51:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ char	*sort_first_two(int **a, size_t count)
 	char	*temp;
 	char	*sort_2_of_5;
 
-	first_greater_than = range_count_of_greater_than(a, a[0][0], 0, 4);
-	second_greater_than = range_count_of_greater_than(a, a[1][0], 1, 4);
+	first_greater_than = range_count_of_g_t(a, a[0][0], 0, 4);
+	second_greater_than = range_count_of_g_t(a, a[1][0], 1, 4);
 	if (second_greater_than == 3)
 		result = ft_strjoin("pa\n", "ra\n");
 	if (second_greater_than == 0)

@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/10 15:55:39 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/11 09:51:15 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int				check_if_int(char *num);
 
 size_t			count_of_greater_than(int **a, int num, size_t count);
 
-size_t			range_count_of_greater_than(int **a, int num, int start, int end);
+size_t			range_count_of_g_t(int **a, int num, int start, int end);
 
 void			print_n_commands(char *command, int n);
 
@@ -65,5 +65,9 @@ ssize_t			get_next_min(int **a, size_t size, int prev_smallest);
 ssize_t			get_min(int **a, size_t count);
 
 t_sort_status	*init_sort_status(int **a, size_t size);
+
+size_t			move_count(int **a, ssize_t index, t_sort_status *status);
+
+ssize_t			get_real_i(int **a, ssize_t index, t_sort_status *status);
 
 #endif

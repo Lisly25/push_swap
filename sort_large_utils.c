@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:13:07 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/10 15:56:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/11 09:49:36 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,15 @@ t_sort_status	*init_sort_status(int **a, size_t size)
 	status->real_size = size;
 	status->prev_method = 'n';
 	return (status);
+}
+
+size_t	move_count(int **a, ssize_t index, t_sort_status *status)
+{
+	ssize_t	real_index;
+
+	real_index = get_real_i(a, index, status);
+	if (real_index <= (status->real_size / 2))
+		return (real_index);
+	else
+		return (status->real_size - real_index);
 }

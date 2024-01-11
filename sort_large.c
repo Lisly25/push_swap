@@ -6,135 +6,59 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:06:39 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/10 16:08:20 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/11 11:49:40 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*static int	get_max(int **a, size_t count)
-{
-	int		max;
-	size_t	i;
-
-	i = 0;
-	max = INT_MIN;
-	while (i < count)
-	{
-		if (a[i][0] > max)
-			max = a[i][0];
-		i++;
-	}
-	return (max);
-}
-
-static int	get_next_min(int **a, size_t count, int prev_smallest, int max)
-{
-	int		next_smallest;
-	size_t	i;
-
-	next_smallest = max;
-	while (i < count)
-	{
-		if (a[i][0] > prev_smallest && a[i][0] < next_smallest)
-			next_smallest = a[i][0];
-		i++;
-	}
-	return (next_smallest);
-}
-
-
-static int	get_move_to_top_first(int index, size_t count)
-{
-	size_t	median;
-	int		moves;
-
-	median = count / 2;
-	if (index <= median)
-		moves = index;
-	else
-		moves = count - index;
-	return (moves);
-}
-
-static int	get_move_to_top_rest(int index, int index_prev, size_t size, int **a)
-{
-	int	mid_sort_index;
-	int	i;
-	int	count;
-
-	count = 0;
-	if (index > index_prev)
-	{
-		while (i != index_prev)
-		{
-			if (a[i++][0] < a[index][0])
-				count++;
-		}
-		mid_sort_index = index_prev - count - index - 1;
-	}
-	else//trying to count the small numbers that've already been pushed from the stack
-	{
-		while (i != index)
-		{
-			if (a[i++][0] < a[index][0])
-				count++;
-		}
-		i = index_prev + 1;
-		while (i < size)
-		{
-			if (a[i++][0] < a[index][0])
-				count++;
-		}
-		mid_sort_index = ;
-	}
-}
-
-char	*sort_pair(int **a, size_t count, int num1_index, int num2_index)
-{
-	char	*result;
-	int		num1_move_count;
-	int		num2_move_count;
-
-	num1_move_count = get_moves_to_top(num1_index, count);
-	num2_move_count = get_moves_to_top(num2_index, count);
-	if (num1_move_count > num2_move_count);
-	{
-		if (num2_index > count / 2)
-			
-	}
-	else
-	
-}*/
-
-
 /*if previous num pair has been moved smaller first, sort = 'o'.
 If it had been larger first, o = 'r'
 If this is the 1st pair being sorted, sort = 'n'*/
 
-static ssize_t	get_real_i(int **a, ssize_t index, t_sort_status *status)
+static void	move_low_first(int **a, size_t moves_low, t_sort_status *status)
 {
-	if (status->prev_low == -1)
-		return (index);
-	if (status->prev_method == 'o')
-	{
-		
-	}
-	if (status->prev_method == 'r')
-	{
-		
-	}
+	size_t	move_high;
+
+	if (get_real_i(a, status->pair_lower, status) <= status->real_size / 2)
+		print_n_commands("ra", moves_low);
+	else
+		print_n_commands("rra", moves_low);
+	ft_printf("pb\n");
+	status->prev_low = status->pair_lower;
+	status->real_size = status->real_size - 1;
+	move_high = move_count(a, status->pair_higher, status);
+	if (get_real_i(a, status->pair_higher, status) > status->real_size / 2)
+		print_n_commands("ra", move_high);
+	else
+		print_n_commands("rra", move_high);
+	ft_printf("pb\n");
+	status->prev_high = status->pair_higher;
+	status->real_size = status->real_size - 1;
+	return ;
 }
 
-static size_t	move_count(int **a, ssize_t index, t_sort_status *status)
+static void	move_high_first(int **a, size_t moves_high, t_sort_status *status)
 {
-	ssize_t	real_index;
+	size_t	move_low;
 
-	real_index = get_real_i(a, index, status);
-	if (real_index <= (status->real_size / 2))
-		return (real_index);
+	if (get_real_i(a, status->pair_higher, status) <= status->real_size / 2)
+		print_n_commands("ra", moves_high);
 	else
-		return (status->real_size - real_index);
+		print_n_commands("rra", moves_high);
+	ft_printf("pb\n");
+	status->prev_high = status->pair_higher;
+	status->real_size = status->real_size - 1;
+	move_low = move_count(a, status->pair_lower, status);
+	if (get_real_i(a, status->pair_lower, status) > status->real_size / 2)
+		print_n_commands("ra", move_low);
+	else
+		print_n_commands("rra", move_low);
+	ft_printf("pb\n");
+	ft_printf("sb\n");
+	status->prev_low = status->pair_lower;
+	status->real_size = status->real_size - 1;
+	return ;
 }
 
 static void	sort_pair(int **a, t_sort_status *status, size_t size)
@@ -145,9 +69,9 @@ static void	sort_pair(int **a, t_sort_status *status, size_t size)
 	move_low_to_top = move_count(a, status->pair_lower, status);
 	move_high_to_top = move_count(a, status->pair_higher, status);
 	if (move_high_to_top < (move_low_to_top - 1))
-		move_high_first();
+		move_high_first(a, move_high_to_top, status);
 	else
-		move_low_first();
+		move_low_first(a, move_low_to_top, status);
 	return ;
 }
 

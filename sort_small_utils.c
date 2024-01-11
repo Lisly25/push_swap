@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_small_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:45:01 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/10 10:12:17 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/11 09:51:29 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	count_of_greater_than(int **a, int num, size_t count)
 	return (greater_than);
 }
 
-size_t	range_count_of_greater_than(int **a, int num, int start, int end)
+size_t	range_count_of_g_t(int **a, int num, int start, int end)
 {
 	size_t	greater_than;
 
