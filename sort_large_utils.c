@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:13:07 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/11 09:49:36 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/11 16:12:25 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_sort_status	*init_sort_status(int **a, size_t size)
 {
 	t_sort_status	*status;
 
-	status = (t_sort_status *)malloc(sizeof(t_sort_status *));
+	status = (t_sort_status *)malloc(sizeof(t_sort_status));
 	if (status == NULL)
 		return (NULL);
 	status->pair_lower = get_min(a, size);
