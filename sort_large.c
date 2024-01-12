@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:06:39 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 11:34:04 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 13:14:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ static void	sort_pair(int **a, t_sort_status *status)
 
 	move_low_to_top = move_count(a, status->pair_lower, status);
 	move_high_to_top = move_count(a, status->pair_higher, status);
-	printf("move low: %zu, move high: %zu\n", move_high_to_top, move_low_to_top);
-	if (move_high_to_top < (move_low_to_top - 1))
+	//printf("(Sort pair:) move high to top: %zu, move low to top: %zu\n", move_high_to_top, move_low_to_top);
+	if ((move_high_to_top + 1) < move_low_to_top)
 		move_high_first(a, move_high_to_top, status);
 	else
 		move_low_first(a, move_low_to_top, status);
