@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:49:07 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 13:14:39 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 15:53:49 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,20 @@ static ssize_t	count_larger_outside(int **a, ssize_t index, ssize_t prev_index)
 	size_t	count;
 	ssize_t	j;
 
-	j = index;
 	count = 0;
 	if (prev_index > index)
 	{
 		j = prev_index;
-		while (a[j])
+		while (a[j] != NULL)
 		{
-			if (a[index][0] > a[j][0])
+			if (a[index][0] < a[j][0])
 				count++;
 			j++;
 		}
 		j = 0;
 		while (j < index)
 		{
-			if (a[index][0] > a[j][0])
+			if (a[index][0] < a[j][0])
 				count++;
 			j++;
 		}
@@ -54,14 +53,14 @@ static ssize_t	count_larger_outside_rev(int **a, ssize_t index, t_sort_status *s
 		j = status->prev_low;
 		while (a[j] != NULL)
 		{
-			if (a[index][0] > a[j][0] && a[j][0] != status->prev_high)//BUG HERE
+			if (a[index][0] < a[j][0] && j != status->prev_high && j != status->prev_low)
 				count++;
 			j++;
 		}
 		j = 0;
 		while (j < index)
 		{
-			if (a[index][0] > a[j][0] && a[j][0] != status->prev_high)
+			if (a[index][0] < a[j][0] && j != status->prev_high && j != status->prev_low)
 				count++;
 			j++;
 		}
@@ -82,7 +81,7 @@ static ssize_t	count_larger_inside(int **a, ssize_t index, ssize_t prev_index)
 	{
 		while (j != index)
 		{
-			if (a[index][0] > a[j][0])
+			if (a[index][0] < a[j][0])
 				count++;
 			j++;
 		}
@@ -104,7 +103,7 @@ static ssize_t	count_larger_inside_rev(int **a, ssize_t index, t_sort_status *st
 		//printf("We got here. J is %zu, index is %zu, prev_low is %zu\n", j, index, status->prev_low);
 		while (j != index)
 		{
-			if (a[index][0] > a[j][0] && a[j][0] != status->prev_high)
+			if (a[index][0] < a[j][0] && j != status->prev_high && j != status->prev_low)
 				count++;
 			j++;
 		}

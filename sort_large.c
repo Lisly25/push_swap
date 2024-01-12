@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:06:39 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 13:14:52 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 15:53:31 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	move_low_first(int **a, size_t moves_low, t_sort_status *status)
 	status->real_size = status->real_size - 1;
 	move_high = move_count(a, status->pair_higher, status);
 	real_index = get_real_i(a, status->pair_higher, status);
+	//printf("Real index of the high num in move_low_first is: %zu\n", real_index);
 	if (real_index > (ssize_t)status->real_size / 2)
 		print_n_commands("ra", move_high);
 	else
@@ -57,6 +58,7 @@ static void	move_high_first(int **a, size_t moves_high, t_sort_status *status)
 	status->real_size = status->real_size - 1;
 	move_low = move_count(a, status->pair_lower, status);
 	real_index = get_real_i(a, status->pair_lower, status);
+	//printf("Real index of the low num in move_high_first is: %zu\n", real_index);
 	if (real_index > (ssize_t)status->real_size / 2)
 		print_n_commands("ra", move_low);
 	else
