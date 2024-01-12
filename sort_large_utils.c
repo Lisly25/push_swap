@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:13:07 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 13:15:56 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 16:22:09 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ ssize_t	get_next_min(int **a, size_t size, int prev_smallest)
 	next_smallest = INT_MAX;
 	next_smallest_i = -1;
 	i = 0;
+	if (prev_smallest == -1)
+		return (-1);
 	while (i < size)
 	{
 		if (a[i][0] > prev_smallest && a[i][0] < next_smallest)

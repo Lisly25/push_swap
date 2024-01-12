@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:06:39 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 15:53:31 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 16:26:07 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	sort_large(int **a, size_t size)
 	{
 		sort_pair(a, status);
 		status->pair_lower = get_next_min(a, size, a[status->pair_higher][0]);
+		if (status->pair_lower == -1)
+			break ;
 		status->pair_higher = get_next_min(a, size, a[status->pair_lower][0]);
 		if (status->pair_higher == -1 && status->pair_lower != -1)
 		{
