@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/11 09:51:15 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 11:20:07 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_sort_status {
 	ssize_t	prev_low;
 	ssize_t	prev_high;
 	size_t	real_size;
+	size_t	og_size;
 	char	prev_method;
 }	t_sort_status;
 
@@ -32,7 +33,7 @@ void			free_list(char **list);
 
 int				**init_stack_a(int argc, char **argv);
 
-int				**get_list(int argc, char **argv, size_t i);
+int				**get_list(int argc, char **argv, int i);
 
 int				**get_str(char *str);
 

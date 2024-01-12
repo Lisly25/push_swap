@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/05 13:51:36 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 11:20:21 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	**get_str(char *str)
 	return (stack_a);
 }
 
-int	**get_list(int argnum, char **argv, size_t i)
+int	**get_list(int argnum, char **argv, int i)
 {
-	int		**stack_a;
-	size_t	j;
+	int	**stack_a;
+	int	j;
 
 	j = 0;
 	stack_a = (int **)malloc(sizeof(int *) * (argnum + 1));
@@ -106,8 +106,8 @@ int	**init_stack_b(int **stack_a)
 
 int	**init_stack_a(int argc, char **argv)
 {
-	int		**stack_a;
-	size_t	i;
+	int	**stack_a;
+	int	i;
 
 	i = 1;
 	if (argc < 1)

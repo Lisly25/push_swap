@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:49:07 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/11 12:47:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 10:50:13 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static ssize_t	count_larger_outside(int **a, ssize_t index, ssize_t prev_index)
 				count++;
 			j++;
 		}
+		return (count);
 	}
 	return (-1);
 }
@@ -48,10 +49,11 @@ static ssize_t	count_larger_outside_rev(int **a, ssize_t index, t_sort_status *s
 	count = 0;
 	if (status->prev_low > index)
 	{
+		printf("prev_low: %zd\n prev_high: %zd", status->prev_low, status->prev_high);
 		j = status->prev_low;
-		while (a[j])
+		while (a[j] != NULL)
 		{
-			if (a[index][0] > a[j][0] && a[j][0] != status->prev_high)
+			if (a[index][0] > a[j][0] && a[j][0] != status->prev_high)//BUG HERE
 				count++;
 			j++;
 		}
@@ -62,6 +64,7 @@ static ssize_t	count_larger_outside_rev(int **a, ssize_t index, t_sort_status *s
 				count++;
 			j++;
 		}
+		return (count);
 	}
 	return (-1);
 }
@@ -110,7 +113,7 @@ ssize_t	get_real_i(int **a, ssize_t index, t_sort_status *status)
 {
 	ssize_t	real_index;
 
-	if (status->prev_low == -1)
+	if (status->prev_method == 'n' && status->real_size == status->og_size)
 		return (index);
 	if (status->prev_method == 'o')
 	{

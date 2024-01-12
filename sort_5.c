@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:49:26 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/11 09:51:52 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/12 11:24:00 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*sort_last_3(int **a, int i)
 	return ("");
 }
 
-char	*last_sort(int **a, size_t greater_than)
+static char	*last_sort(size_t greater_than)
 {
 	char	*result;
 
@@ -51,7 +51,7 @@ char	*last_sort(int **a, size_t greater_than)
 	return (result);
 }
 
-char	*sort_first_two(int **a, size_t count)
+static char	*sort_first_two(int **a)
 {
 	size_t	first_greater_than;
 	size_t	second_greater_than;
@@ -70,7 +70,7 @@ char	*sort_first_two(int **a, size_t count)
 	if (second_greater_than == 2)
 		result = ft_strjoin("rra\npa\n", "ra\nra\n");
 	temp = ft_strdup(result);
-	sort_2_of_5 = last_sort(a, first_greater_than);
+	sort_2_of_5 = last_sort(first_greater_than);
 	result = ft_strjoin(temp, sort_2_of_5);
 	free(temp);
 	free(sort_2_of_5);
@@ -95,9 +95,7 @@ char	*sort_all(int **a, size_t count)
 			result = ft_strjoin("rra\npa\n", "ra\nra\n");
 	}
 	if (count == 5)
-	{
-		result = sort_first_two(a, count);
-	}
+		result = sort_first_two(a);
 	return (result);
 }
 
