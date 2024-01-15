@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 15:29:13 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:48:39 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	main(int argc, char **argv)
 	if (check_for_errors(stack_a) == 1)
 		exit (1);
 	stack_b = init_stack_b(stack_a);
+	//stack_b = NULL;
 	get_sort_commands(stack_a, stack_b);
 	free_stack(stack_a);
+	free_stack(stack_b);
 	exit (0);
 }

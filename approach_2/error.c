@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 12:39:22 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 14:55:26 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:45:23 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	free_stack(int **stack)
 	size_t	i;
 
 	i = 0;
-	while (stack[i])
-		free(stack[i++]);
-	free(stack);
+	if (stack != NULL)
+	{
+		while (stack[i])
+			free(stack[i++]);
+		free(stack);
+	}
 }
 
 void	free_list(char **list)

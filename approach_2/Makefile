@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/15 15:24:24 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/15 15:48:08 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,9 @@ fclean: clean
 	make fclean -C ./libft
 
 re: fclean all
+
+my_make: all
+	make clean
 
 .PHONY: all clean fclean re
 	
