@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/15 15:48:08 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/16 10:51:42 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(LIBFT) :
 	make -C ./libft
 
 $(NAME) : $(OBJS) $(LIBFT)
-	cc $(OBJS) $(LIBFT) -o $(NAME)
+	cc $(C_FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
@@ -49,6 +49,10 @@ fclean: clean
 re: fclean all
 
 my_make: all
+	make clean
+
+fsanitize: $(OBJS) $(LIBFT)
+	cc $(C_FLAGS) -fsanitize=address -g $(OBJS) $(LIBFT) -o $(NAME)
 	make clean
 
 .PHONY: all clean fclean re
