@@ -6,11 +6,51 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 16:48:20 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:34:15 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static size_t	ra_and_push(int **a, int **b, size_t moves, size_t stack_size)
+{
+	while (moves != 0)
+	{
+		ft_rotate(a, b);
+		ft_printf("ra\n");
+		moves--;
+	}
+	b = ft_push(&a, &b, stack_size);
+	ft_printf("pb\n");
+	return (stack_size - 1);
+}
+
+static size_t	rra_and_push(int **a, int **b, size_t moves, size_t stack_size)
+{
+	while (moves != 0)
+	{
+		ft_rev_rotate(a, b);
+		ft_printf("rra\n");
+		moves--;
+	}
+	b = ft_push(&a, &b, stack_size);
+	ft_printf("pb\n");
+	return (stack_size - 1);
+}
+
+static size_t	move_other_half(int ***a, int ***b, size_t size_of_a)
+{
+	size_t	index;
+	size_t	move_index_to_top;
+
+	index = get_min(*a, size_of_a);
+	move_index_to_top = move_count(size_of_a, index);
+	if (move_index_to_top <= size_of_a / 2)
+		size_of_a = ra_and_push(*a, *b, move_index_to_top, size_of_a);
+	else
+		size_of_a = rra_and_push(a, b, move_index_to_top, size_of_a);
+	return (size_of_a);
+}
 
 static size_t	sort_pair(int **a, int **b, ssize_t smaller, ssize_t larger)
 {
@@ -24,18 +64,19 @@ static size_t	sort_pair(int **a, int **b, ssize_t smaller, ssize_t larger)
 	if (move_to_top_large < (move_to_top_small - 1))
 	{
 		if (larger <= size_of_a / 2)
-			size_of_a = ra_n_times();
+			size_of_a = ra_and_push(a, b, move_to_top_large, size_of_a);
 		else
-			size_of_a = rra_n_times();
-		size_of_a = move_other_half_of_pair();
+			size_of_a = rra_and_push(a, b, move_to_top_large, size_of_a);
+		size_of_a = move_other_half(&a, &b, size_of_a);
+		ft_swap_b(&a, &b);
 	}
 	else
 	{
-		if (larger <= size_of_a / 2)
-			size_of_a = ra_n_times();
+		if (smaller <= size_of_a / 2)
+			size_of_a = ra_and_push(a, b, move_to_top_small, size_of_a);
 		else
-			size_of_a = rra_n_times();
-		size_of_a = move_other_half_of_pair();
+			size_of_a = rra_and_push(a, b, move_to_top_small, size_of_a);
+		size_of_a = move_other_half(&a, &b, size_of_a);
 	}
 	return (size_of_a);
 }

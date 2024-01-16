@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 16:37:23 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:37:53 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	ft_rev_rotate(int **stack, int **other_stack);
 void	ft_rotate(int **stack, int **other_stack);
 
 size_t	move_count(size_t stack_size, size_t index);
+
+void	ft_swap_b(int ***a, int ***b);
 
 #endif
