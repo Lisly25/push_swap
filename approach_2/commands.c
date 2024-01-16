@@ -6,22 +6,22 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:40:03 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 15:36:02 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/16 11:50:09 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int **stack, int **other_stack)
+void	ft_swap(int ***stack, int ***other_stack)
 {
 	int	*temp;
 
 	temp = (int *)malloc(sizeof(int));
 	if (temp == NULL)
 		return (ft_ps_malloc_error(stack, other_stack));
-	temp = stack[0];
-	stack[0] = stack[1];
-	stack[1] = temp;
+	temp = *stack[0];
+	*stack[0] = *stack[1];
+	*stack[1] = temp;
 	free (temp);
 }
 
@@ -54,7 +54,7 @@ int	**ft_push(int ***src, int ***dest, size_t size)
 	new_dest = (int **)malloc(sizeof(int *) * (size + 2));
 	if (new_dest == NULL)
 	{
-		ft_ps_malloc_error(*src, *dest);
+		ft_ps_malloc_error(src, dest);
 		return (NULL);
 	}
 	new_dest[0] = *src[0];
@@ -62,7 +62,7 @@ int	**ft_push(int ***src, int ***dest, size_t size)
 	if (*src == NULL)
 	{
 		free_stack(new_dest);
-		ft_ps_malloc_error(*src, *dest);
+		ft_ps_malloc_error(src, dest);
 		return (NULL);
 	}
 	while (i < size)
@@ -72,41 +72,49 @@ int	**ft_push(int ***src, int ***dest, size_t size)
 	return (new_dest);
 }
 
-void	ft_rev_rotate(int **stack, int **other_stack)
+void	ft_rev_rotate(int ***stack, int ***other_stack)
 {
 	int	*temp;
 	int	i;
 	int	j;
+	int	**stack_a;
 
 	i = 0;
+	stack_a = *stack;
 	temp = (int *)malloc(sizeof(int));
 	if (temp == NULL)
 		return (ft_ps_malloc_error(stack, other_stack));
-	while (stack[i] != NULL)
+	while (stack_a[i] != NULL)
 		i++;
 	i--;
 	j = i - 1;
-	temp = stack[i];
+	temp = stack_a[i];
 	while (j >= 0)
-		stack[i--] = stack[j--];
-	stack[i] = temp;
+		stack_a[i--] = stack_a[j--];
+	stack_a[i] = temp;
 	free(temp);
 }
 
-void	ft_rotate(int **stack, int **other_stack)
+void	ft_rotate(int ***stack, int ***other_stack)
 {
 	int	*temp;
 	int	i;
 	int	j;
+	int	**stack_a;
 
 	i = 0;
 	j = 1;
+	stack_a = *stack;
 	temp = (int *)malloc(sizeof(int));
 	if (temp == NULL)
 		return (ft_ps_malloc_error(stack, other_stack));
-	temp = stack[0];
-	while (stack[j] != NULL)
-		stack[i++] = stack[j++];
-	stack[i] = temp;
+	temp = stack_a[0];
+	while (stack_a[j] != NULL)
+	{
+		stack_a[i] = stack_a[j];
+		i++;
+		j++;
+	}
+	stack_a[i] = temp;
 	free(temp);
 }
