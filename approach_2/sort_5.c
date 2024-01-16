@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:49:26 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 11:24:00 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:39:31 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*sort_last_3(int **a, int i)
 	j = i + 1;
 	k = i + 2;
 	if (a[i][0] < a[j][0] && a[j][0] < a[k][0])
-		return ("\n");
+		return ("");
 	if (a[i][0] < a[j][0] && a[j][0] > a[k][0] && a[i][0] < a[k][0])
 		return ("rra\nsa\n");
 	if (a[i][0] > a[j][0] && a[j][0] < a[k][0] && a[i][0] < a[k][0])
