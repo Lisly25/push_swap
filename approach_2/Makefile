@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/16 10:51:42 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/16 11:27:30 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ my_make: all
 	make clean
 
 fsanitize: $(OBJS) $(LIBFT)
-	cc $(C_FLAGS) -fsanitize=address -g $(OBJS) $(LIBFT) -o $(NAME)
+	cc $(C_FLAGS) -g -fsanitize=address $(OBJS) $(LIBFT) -o $(NAME)
 	make clean
 
 .PHONY: all clean fclean re

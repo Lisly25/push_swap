@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 12:39:22 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 15:45:23 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/16 11:05:47 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	free_list(char **list)
 	free(list);
 }
 
-void	ft_ps_malloc_error(int **stack_1, int **stack_2)
+void	ft_ps_malloc_error(int ***stack_1, int ***stack_2)
 {
-	if (stack_1 != NULL)
-		free_stack(stack_1);
-	if (stack_2 != NULL)
-		free_stack(stack_2);
+	if (*stack_1 != NULL)
+		free_stack(*stack_1);
+	if (*stack_2 != NULL)
+		free_stack(*stack_2);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/16 10:36:21 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:28:50 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ size_t	move_count(size_t stack_size, size_t index)
 
 void	ft_swap_b(int ***a, int ***b)
 {
-	ft_swap(*b, *a);
+	ft_swap(b, a);
 	ft_printf("sb\n");
 }
