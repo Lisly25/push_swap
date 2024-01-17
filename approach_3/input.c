@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 15:22:38 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:28:08 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,20 @@ int	**init_stack_b(int **stack_a)
 
 	i = get_arr_size(stack_a);
 	j = 0;
-	stack_b = (int **)malloc(sizeof(int *) * (i + 1));
+	stack_b = (int **)malloc(sizeof(int *));
 	if (stack_b == NULL)
 	{
 		free_stack(stack_a);
-		return (NULL);
+		exit(1);
 	}
-	while (i > 0)
+	stack_b[0] = malloc(sizeof(int));
+	if (stack_b[0] == NULL)
 	{
-		stack_b[j] = ft_calloc(1, sizeof(int));
-		if (stack_b == NULL)
-		{
-			free_stack(stack_a);
-			return (NULL);
-		}
-		j++;
-		i--;
+		free_stack(stack_a);
+		free(stack_b);
+		exit(1);
 	}
-	stack_b[j] = NULL;
+	stack_b[0] = NULL;
 	return (stack_b);
 }
 
