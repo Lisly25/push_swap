@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/15 15:56:13 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:22:38 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	**init_stack_b(int **stack_a)
 	}
 	while (i > 0)
 	{
-		stack_b[j] = calloc(1, sizeof(int));
+		stack_b[j] = ft_calloc(1, sizeof(int));
 		if (stack_b == NULL)
 		{
 			free_stack(stack_a);
