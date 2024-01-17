@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 16:33:34 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 17:08:04 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,14 @@ ssize_t	get_next_min(int **a, size_t size, int prev_smallest)
 	return (next_smallest_i);
 }
 
-size_t	move_count(size_t stack_size, size_t index)
+int	move_count(int **stack, size_t index)
 {
+	size_t	stack_size;
+
+	stack_size = get_arr_size(stack);
 	if (index <= stack_size / 2)
 		return (index);
 	else
-		return (stack_size - index);
+		return (index - stack_size);
 }
+//if reverse rotations are needed, returns a neg. number
