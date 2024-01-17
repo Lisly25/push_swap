@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 16:32:31 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 17:08:13 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_stacks	*ft_rr(t_stacks *stacks);
 
 t_stacks	*ft_rrr(t_stacks *stacks);
 
-size_t		move_count(size_t stack_size, size_t index);
+int			move_count(int **stack, size_t index);
 
 void		free_stacks_struct(t_stacks *stacks);
 
