@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 14:48:01 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:32:31 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,17 @@ void		print_n_commands(char *command, int n);
 
 ssize_t		get_next_min(int **a, size_t size, int prev_smallest);
 
-ssize_t		get_min(int **a, size_t count);
+ssize_t		get_min(int **stack);
 
-t_stacks	*ft_push_to_b(t_stacks *stacks, size_t size);
+ssize_t		get_max(int **stack);
+
+t_stacks	*ft_push_to_b(t_stacks *stacks);
 
 t_stacks	*ft_rev_rotate_a(t_stacks *stacks);
 
 t_stacks	*ft_rotate_a(t_stacks *stacks);
 
-t_stacks	*ft_push_to_a(t_stacks *stacks, size_t size);
+t_stacks	*ft_push_to_a(t_stacks *stacks);
 
 t_stacks	*ft_rev_rotate_b(t_stacks *stacks);
 
