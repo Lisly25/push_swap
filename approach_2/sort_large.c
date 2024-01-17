@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 13:26:52 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 13:37:02 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 static t_stacks	*ra_and_push(t_stacks *stacks, size_t moves, size_t stack_size)
 {
-	//printf("In ra_and_push\n");
-	//print_int_arr(stacks->a);
 	while (moves != 0)
 	{
 		stacks = ft_rotate(stacks);
-		//printf("Arr after being passed back from ft_rotate\n");
-		//print_int_arr(stacks->a);
 		ft_printf("ra\n");
 		moves--;
 	}
-	//printf("After rotation\n");
 	stacks = ft_push_to_b(stacks, stack_size);
-	//printf("After push\n");
-	//print_int_arr(*a);
 	ft_printf("pb\n");
 	return (stacks);
 }
@@ -40,8 +33,6 @@ static t_stacks	*rra_and_push(t_stacks *stacks, size_t moves, size_t size_a)
 		ft_printf("rra\n");
 		moves--;
 	}
-	//printf("After rev rotation\n");
-	//print_int_arr(*a);
 	stacks = ft_push_to_b(stacks, size_a);
 	ft_printf("pb\n");
 	return (stacks);
@@ -53,18 +44,13 @@ static t_stacks	*move_other_half(t_stacks *stacks)
 	size_t	move_index_to_top;
 	size_t	size_of_a;
 
-	//printf("In move other half\n");
-	//print_int_arr(stacks->a);
 	size_of_a = get_arr_size(stacks->a);
 	index = get_min(stacks->a, size_of_a);
-	//printf("Number getting moved next is %d, at index %zu\n", stacks->a[index][0], index);
 	move_index_to_top = move_count(size_of_a, index);
 	if (index <= size_of_a / 2)
 		stacks = ra_and_push(stacks, move_index_to_top, size_of_a);
 	else
 		stacks = rra_and_push(stacks, move_index_to_top, size_of_a);
-	//printf("After move other half, stack a is:\n");
-	//print_int_arr(stacks->a);
 	return (stacks);
 }
 
@@ -74,8 +60,6 @@ static t_stacks	*sort_pair(t_stacks *stacks, ssize_t smaller, ssize_t larger)
 	size_t	move_to_top_large;
 	size_t	size_of_a;
 
-	//printf("In sort pair\n");
-	//print_int_arr(stacks->a);
 	size_of_a = get_arr_size(stacks->a);
 	move_to_top_small = move_count(size_of_a, smaller);
 	move_to_top_large = move_count(size_of_a, larger);
@@ -106,7 +90,6 @@ void	sort_large(t_stacks *stacks, size_t size)
 	size_t	original_size;
 
 	original_size = size;
-
 	while (size > 1)
 	{
 		pair_small = get_min(stacks->a, size);
@@ -121,13 +104,9 @@ void	sort_large(t_stacks *stacks, size_t size)
 			ft_printf("Error\n");
 			return ;
 		}
-		//printf("After sorting pair, a is:\n");
-		//print_int_arr(stacks->a);
 	}
 	if (size == 1)
 		print_n_commands("pa", (original_size - 1));
 	else
 		print_n_commands("pa", original_size);
-	//printf("Stack b is:\n");
-	//print_int_arr(stacks->b);
 }

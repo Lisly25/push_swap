@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 11:47:48 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 13:37:59 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ ssize_t		get_next_min(int **a, size_t size, int prev_smallest);
 
 ssize_t		get_min(int **a, size_t count);
 
-//void	ft_ps_malloc_error(int **stack_1, int **stack_2);
-
 t_stacks	*ft_push_to_b(t_stacks *stacks, size_t size);
 
 t_stacks	*ft_rev_rotate(t_stacks *stacks);
@@ -76,9 +74,5 @@ t_stacks	*ft_swap_b(t_stacks *stacks);
 size_t		move_count(size_t stack_size, size_t index);
 
 void		free_stacks_struct(t_stacks *stacks);
-
-
-
-void		print_int_arr(int **stack_a);//comment out after debug!
 
 #endif

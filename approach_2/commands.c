@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:40:03 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 13:18:12 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 13:34:40 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ t_stacks	*ft_rev_rotate(t_stacks *stacks)
 		new_stack[i++] = (int *)stacks->a[j++];
 	new_stack[0] = (int *)stacks->a[j];
 	new_stack[i] = NULL;
-	//printf("Within rev rotate:\n");
-	//print_int_arr(new_stack);
 	free(stacks->a);
 	stacks->a = new_stack;
 	return (stacks);
@@ -95,8 +93,6 @@ t_stacks	*ft_rotate(t_stacks *stacks)
 
 	i = 0;
 	j = 1;
-	//printf("Start of ft_rotate\n");
-	//print_int_arr(stacks->a);
 	size_of_a = get_arr_size(stacks->a);
 	new_stack = (int **)malloc(sizeof(int *) * (size_of_a + 1));
 	if (new_stack == NULL)
@@ -105,10 +101,7 @@ t_stacks	*ft_rotate(t_stacks *stacks)
 		new_stack[i++] = (int *)stacks->a[j++];
 	new_stack[i++] = (int *)stacks->a[0];
 	new_stack[i] = NULL;
-	//printf("New stack:\n");
-	//print_int_arr(new_stack);
 	free(stacks->a);
 	stacks->a = new_stack;
-	//print_int_arr(stacks->a);
 	return (stacks);
 }

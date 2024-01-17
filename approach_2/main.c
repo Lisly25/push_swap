@@ -6,23 +6,11 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 11:04:52 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 13:37:29 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_int_arr(int **stack_a)//comment out after debug!
-{
-	int	i;
-
-	i = 0;
-	while (stack_a[i] != NULL)
-	{
-		printf("%d. element is %d\n", i, stack_a[i][0]);
-		i++;
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -42,8 +30,6 @@ int	main(int argc, char **argv)
 	stacks->b = init_stack_b(stacks->a);
 	if (stacks->b == NULL)
 		free_stacks_struct(stacks);
-	//print_int_arr(stacks->a);
-	//print_int_arr(stacks->b);
 	get_sort_commands(stacks);
 	free_stack(stacks->a);
 	free_stack(stacks->b);
