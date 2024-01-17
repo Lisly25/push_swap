@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/16 11:43:54 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 11:04:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,27 @@ void	print_int_arr(int **stack_a)//comment out after debug!
 
 int	main(int argc, char **argv)
 {
-	int		**stack_a;
-	int		**stack_b;
-	char	*result;
+	t_stacks	*stacks;
 
-	stack_a = init_stack_a(argc, argv);
-	if (stack_a == NULL)
+	stacks = (t_stacks *)malloc(sizeof(t_stacks));
+	if (stacks == NULL)
+		exit(1);
+	stacks->a = init_stack_a(argc, argv);
+	if (stacks->a == NULL)
 	{
-		ft_putendl_fd("Error", 2);
-		exit (1);
+		free(stacks);
+		exit(1);
 	}
-	if (check_for_errors(stack_a) == 1)
-		exit (1);
-	stack_b = init_stack_b(stack_a);
-	get_sort_commands(&stack_a, &stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	if (check_for_errors(stacks->a) == 1)
+		exit(1);
+	stacks->b = init_stack_b(stacks->a);
+	if (stacks->b == NULL)
+		free_stacks_struct(stacks);
+	//print_int_arr(stacks->a);
+	//print_int_arr(stacks->b);
+	get_sort_commands(stacks);
+	free_stack(stacks->a);
+	free_stack(stacks->b);
+	free(stacks);
 	exit (0);
 }

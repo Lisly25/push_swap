@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/16 17:18:05 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 11:47:48 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,60 +17,68 @@
 # include <stdlib.h>
 # include "limits.h"
 
-void	free_stack(int **stack);
+typedef struct s_stacks
+{
+	int	**a;
+	int	**b;
+}	t_stacks;
 
-void	free_list(char **list);
+void		free_stack(int **stack);
 
-int		**init_stack_a(int argc, char **argv);
+void		free_list(char **list);
 
-int		**get_list(int argc, char **argv, int i);
+int			**init_stack_a(int argc, char **argv);
 
-int		**get_str(char *str);
+int			**get_list(int argc, char **argv, int i);
 
-int		**init_stack_b(int **stack_a);
+int			**get_str(char *str);
 
-size_t	get_arr_size(int **stack);
+int			**init_stack_b(int **stack_a);
 
-void	get_sort_commands(int ***stack_a, int ***stack_b);
+size_t		get_arr_size(int **stack);
 
-char	*sort_3(int **a, size_t count);
+void		get_sort_commands(t_stacks *stacks);
 
-char	*sort_5(int **a, size_t count);
+char		*sort_3(int **a, size_t count);
 
-void	sort_large(int ***a, int ***b, size_t size);
+char		*sort_5(int **a, size_t count);
 
-int		check_for_errors(int **a);
+void		sort_large(t_stacks *stacks, size_t size);
 
-int		check_if_num(char *str);
+int			check_for_errors(int **a);
 
-int		check_if_int(char *num);
+int			check_if_num(char *str);
 
-size_t	count_of_greater_than(int **a, int num, size_t count);
+int			check_if_int(char *num);
 
-size_t	range_count_of_g_t(int **a, int num, int start, int end);
+size_t		count_of_greater_than(int **a, int num, size_t count);
 
-void	print_n_commands(char *command, int n);
+size_t		range_count_of_g_t(int **a, int num, int start, int end);
 
-ssize_t	get_next_min(int **a, size_t size, int prev_smallest);
+void		print_n_commands(char *command, int n);
 
-ssize_t	get_min(int **a, size_t count);
+ssize_t		get_next_min(int **a, size_t size, int prev_smallest);
 
-void	ft_ps_malloc_error(int ***stack_1, int ***stack_2);
+ssize_t		get_min(int **a, size_t count);
 
-void	ft_swap(int ***stack, int ***other_stack);
+//void	ft_ps_malloc_error(int **stack_1, int **stack_2);
 
-int		**ft_push(int	***src, int ***dest, size_t size);
+t_stacks	*ft_push_to_b(t_stacks *stacks, size_t size);
 
-int		**ft_rev_rotate(int ***stack, int ***other_stack);
+t_stacks	*ft_rev_rotate(t_stacks *stacks);
 
-int		**ft_rotate(int ***stack, int ***other_stack);
+t_stacks	*ft_rotate(t_stacks *stacks);
 
-size_t	move_count(size_t stack_size, size_t index);
+t_stacks	*ft_swap(t_stacks *stacks, char stack);
 
-void	ft_swap_b(int ***a, int ***b);
+t_stacks	*ft_swap_b(t_stacks *stacks);
+
+size_t		move_count(size_t stack_size, size_t index);
+
+void		free_stacks_struct(t_stacks *stacks);
 
 
 
-void	print_int_arr(int **stack_a);//comment out after debug!
+void		print_int_arr(int **stack_a);//comment out after debug!
 
 #endif

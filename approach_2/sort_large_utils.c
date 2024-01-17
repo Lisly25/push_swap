@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/16 17:28:50 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 11:25:57 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,14 @@ size_t	move_count(size_t stack_size, size_t index)
 		return (stack_size - index);
 }
 
-void	ft_swap_b(int ***a, int ***b)
+t_stacks	*ft_swap(t_stacks *stacks, char stack)
 {
-	ft_swap(b, a);
-	ft_printf("sb\n");
+	if (stack == 'b')
+	{
+		stacks = ft_swap_b(stacks);
+		ft_printf("sb\n");
+		return (stacks);
+	}
+	else
+		return (NULL);
 }
