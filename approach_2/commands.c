@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:40:03 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 13:15:33 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 13:18:12 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 t_stacks	*ft_swap_b(t_stacks *stacks)
 {
-	int	*temp;
+	int	temp;
 
-	temp = (int *)malloc(sizeof(int));
-	if (temp == NULL)
-		free_stacks_struct(stacks);
-	temp = stacks->b[0];
-	stacks->b[0] = stacks->b[1];
-	stacks->b[1] = temp;
-	if (temp != NULL)
-		free(temp);
+	temp = stacks->b[0][0];
+	stacks->b[0][0] = stacks->b[1][0];
+	stacks->b[1][0] = temp;
 	return (stacks);
 }
 

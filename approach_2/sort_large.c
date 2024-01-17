@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 12:35:54 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 13:26:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,18 @@ static t_stacks	*move_other_half(t_stacks *stacks)
 	size_t	move_index_to_top;
 	size_t	size_of_a;
 
-	printf("In move other half\n");
-	print_int_arr(stacks->a);
+	//printf("In move other half\n");
+	//print_int_arr(stacks->a);
 	size_of_a = get_arr_size(stacks->a);
 	index = get_min(stacks->a, size_of_a);
+	//printf("Number getting moved next is %d, at index %zu\n", stacks->a[index][0], index);
 	move_index_to_top = move_count(size_of_a, index);
-	if (move_index_to_top <= size_of_a / 2)
+	if (index <= size_of_a / 2)
 		stacks = ra_and_push(stacks, move_index_to_top, size_of_a);
 	else
 		stacks = rra_and_push(stacks, move_index_to_top, size_of_a);
+	//printf("After move other half, stack a is:\n");
+	//print_int_arr(stacks->a);
 	return (stacks);
 }
 
@@ -71,8 +74,8 @@ static t_stacks	*sort_pair(t_stacks *stacks, ssize_t smaller, ssize_t larger)
 	size_t	move_to_top_large;
 	size_t	size_of_a;
 
-	printf("In sort pair\n");
-	print_int_arr(stacks->a);
+	//printf("In sort pair\n");
+	//print_int_arr(stacks->a);
 	size_of_a = get_arr_size(stacks->a);
 	move_to_top_small = move_count(size_of_a, smaller);
 	move_to_top_large = move_count(size_of_a, larger);
