@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:40:03 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 14:40:11 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:10:27 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,17 @@ t_stacks	*ft_swap_a(t_stacks *stacks)
 	return (stacks);
 }
 
-static t_stacks	*ft_push_to_a_src(t_stacks *stacks, size_t size)
+static t_stacks	*ft_push_to_a_src(t_stacks *stacks)
 {
 	size_t	i;
 	size_t	j;
+	size_t	size;
 	int		**new_b;
 
 	i = 1;
 	j = 0;
-	new_b = (int **)malloc(sizeof(int *) * (size + 1));
+	size = get_arr_size(stacks->b);
+	new_b = (int **)malloc(sizeof(int *) * size);
 	if (new_b == NULL)
 		free_stacks_struct(stacks);
 	while (i < size)
@@ -41,19 +43,21 @@ static t_stacks	*ft_push_to_a_src(t_stacks *stacks, size_t size)
 	return (stacks);
 }
 
-t_stacks	*ft_push_to_a(t_stacks *stacks, size_t size)
+t_stacks	*ft_push_to_a(t_stacks *stacks)
 {
 	size_t	i;
 	size_t	j;
+	size_t	size;
 	int		**new_a;
 
 	i = 0;
 	j = 1;
+	size = get_arr_size(stacks->a);
 	new_a = (int **)malloc(sizeof(int *) * (size + 2));
 	if (new_a == NULL)
 		free_stacks_struct(stacks);
 	new_a[0] = stacks->b[0];
-	stacks = ft_push_to_a_src(stacks, size);
+	stacks = ft_push_to_a_src(stacks);
 	while (i < size)
 		new_a[j++] = (int *)stacks->a[i++];
 	new_a[j] = NULL;
