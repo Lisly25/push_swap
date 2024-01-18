@@ -6,13 +6,13 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 11:01:12 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:35:38 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_n_commands(char *command, int n)
+/*void	print_n_commands(char *command, int n)
 {
 	while (n != 0)
 	{
@@ -20,6 +20,15 @@ void	print_n_commands(char *command, int n)
 		n--;
 	}
 	return ;
+}*/
+
+int	add_absolute_values(int rotates_src, int rotates_dest)
+{
+	if (rotates_dest < 0)
+		rotates_dest = -rotates_dest;
+	if (rotates_src < 0)
+		rotates_src = -rotates_src;
+	return (rotates_dest + rotates_src);
 }
 
 ssize_t	get_min(int **stack)
