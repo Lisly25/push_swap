@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 16:20:04 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:24:16 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ int	get_moves_pb(t_stacks *stacks, size_t index)
 	int		moves;
 	ssize_t	next_smallest;
 
+	//printf("Error here?\n");
 	b_min = get_min(stacks->b);
 	b_max = get_max(stacks->b);
+	//printf("what is wrong? Stack a at index *%d* is %d\n", index, stacks->a[index][0]);
 	next_smallest = get_next_min(stacks->b, stacks->a[index][0]);
+	//printf("No error after get next min\n");
 	if (stacks->a[index][0] > stacks->b[b_max][0])
 		moves = move_count(stacks->b, b_max);
 	else if (stacks->a[index][0] < stacks->b[b_min][0])
@@ -64,16 +67,20 @@ static ssize_t	get_cheapest_to_p_to_b(t_stacks *stacks)
 	size_t	cheapest_i;
 	int		rotates_all;
 	int		least_moves;
+	size_t	stack_a_size;
 
 	i = 0;
 	cheapest_i = 0;
 	least_moves = INT_MAX;
-	while (stacks->b[i] != NULL)
+	stack_a_size = get_arr_size(stacks->a);
+	//printf("Stack a's size is: %zu\n", stack_a_size);
+	while (i < stack_a_size)
 	{
 		rotates_all = combined_rotation_moves(stacks, i);
 		if (rotates_all < least_moves)
 			cheapest_i = i;
 		i++;
+		//printf("i is %d, stack size of a is: %zu\n", i, get_arr_size(stacks->a));
 	}
 	return (cheapest_i);
 }
@@ -91,11 +98,12 @@ static t_stacks	*rotate_a_final(t_stacks *stacks)
 		ft_printf("rra\n");
 		moves++;
 	}
+	//printf("Moves: %d\n", moves);
 	while (moves > 0)
 	{
 		stacks = ft_rotate_a(stacks);
 		ft_printf("ra\n");
-		moves++;
+		moves--;
 	}
 	return (stacks);
 }
@@ -115,12 +123,17 @@ void	sort_large(t_stacks *stacks, size_t size)
 		next_to_be_moved = get_cheapest_to_p_to_b(stacks);
 		stacks = move_a_to_b(stacks, next_to_be_moved);
 		size--;
+		//printf("Size of stack a according to non-function call counter is %d\n", size);
 	}
+	printf("Stack b after only 3 elements in stack a are left:\n");
+	print_int_arr(stacks->b);
 	stacks = sort_last_3_large(stacks);
 	while (size != original_size)
 	{
 		stacks = move_b_to_a(stacks);
+		//printf("Moving from b to a\n");
 		size++;
+		//printf("Size: %zu\n", size);
 	}
 	stacks = rotate_a_final(stacks);
 	return ;

@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:58:50 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 14:59:01 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:22:24 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,9 @@ t_stacks	*move_a_to_b(t_stacks *stacks, size_t index)
 		stacks = mixed_rotates(stacks, rotates_a, rotates_b);
 	stacks = ft_push_to_b(stacks);
 	ft_printf("pb\n");
+	//printf("Stack a:\n");
+	//print_int_arr(stacks->a);
+	//printf("Stack b\n");
+	//print_int_arr(stacks->b);
 	return (stacks);
 }

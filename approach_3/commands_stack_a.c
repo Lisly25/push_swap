@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 09:40:03 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 15:10:27 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:01:51 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ t_stacks	*ft_rotate_a(t_stacks *stacks)
 	new_stack[i] = NULL;
 	free(stacks->a);
 	stacks->a = new_stack;
+	//print_int_arr(stacks->a);
 	return (stacks);
 }
