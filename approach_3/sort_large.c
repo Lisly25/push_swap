@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 16:05:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:09:44 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	sort_large(t_stacks *stacks, size_t size)
 	original_size = size;
 	stacks = ft_push_to_b(stacks);
 	stacks = ft_push_to_b(stacks);
+	ft_printf("pb\npb\n");
 	size = size - 2;
 	while (size > 3)
 	{
