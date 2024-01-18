@@ -6,13 +6,13 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 11:52:52 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:04:41 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_moves_pb(t_stacks *stacks, size_t index)
+int	get_moves_pb(t_stacks *stacks, size_t index)
 {
 	ssize_t	b_min;
 	ssize_t	b_max;
@@ -31,13 +31,7 @@ static int	get_moves_pb(t_stacks *stacks, size_t index)
 	return (moves);
 }
 
-//to get the combination of moves needed:
-	// 1. need to see how many rotations you'd need to get num to top of stack a
-	// 2. need to see how many rotations it'd take to rotate stack b to be ready for accepting the num
-	// 3. 1 move for "pb" (but we don't really need to count that since that's always needed)
-	// +1: if rotations in 1 and 2 are done in the same direction, they can use double moves to lessen the number of moves
-
-static int	combined_rotation_moves(t_stacks *stacks, size_t index)
+int	combined_rotation_moves(t_stacks *stacks, size_t index)
 {
 	int	rotates_src;
 	int	rotates_dest;

@@ -6,21 +6,11 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 11:35:38 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:04:21 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*void	print_n_commands(char *command, int n)
-{
-	while (n != 0)
-	{
-		ft_printf("%s\n", command);
-		n--;
-	}
-	return ;
-}*/
 
 int	add_absolute_values(int rotates_src, int rotates_dest)
 {

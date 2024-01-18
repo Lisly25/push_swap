@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 11:34:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:04:04 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ size_t		count_of_greater_than(int **a, int num, size_t count);
 
 size_t		range_count_of_g_t(int **a, int num, int start, int end);
 
-//void		print_n_commands(char *command, int n);
-
 ssize_t		get_next_min(int **a, int prev_smallest);
 
 ssize_t		get_min(int **stack);
@@ -90,5 +88,9 @@ int			move_count(int **stack, size_t index);
 void		free_stacks_struct(t_stacks *stacks);
 
 int			add_absolute_values(int rotates_src, int rotates_dest);
+
+int			get_moves_pb(t_stacks *stacks, size_t index);
+
+int			combined_rotation_moves(t_stacks *stacks, size_t index);
 
 #endif
