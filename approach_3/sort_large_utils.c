@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 15:23:40 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:35:30 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,29 +67,27 @@ ssize_t	get_max(int **stack)
 	return (max_index);
 }
 
-ssize_t	get_next_min(int **stack, int prev_smallest)
+ssize_t	get_next_larger(int **stack, int num)
 {
-	int		next_smallest;
-	ssize_t	next_smallest_i;
+	int		next_larger;
+	ssize_t	next_larger_i;
 	size_t	i;
 	size_t	size;
 
-	next_smallest = INT_MAX;
-	next_smallest_i = -1;
+	next_larger = INT_MAX;
+	next_larger_i = -1;
 	size = get_arr_size(stack);
 	i = 0;
-	if (prev_smallest == -1)
-		return (-1);
 	while (i < size)
 	{
-		if (stack[i][0] > prev_smallest && stack[i][0] < next_smallest)
+		if (stack[i][0] > num && stack[i][0] < next_larger)
 		{
-			next_smallest = stack[i][0];
-			next_smallest_i = i;
+			next_larger = stack[i][0];
+			next_larger_i = i;
 		}
 		i++;
 	}
-	return (next_smallest_i);
+	return (next_larger_i);
 }
 
 int	move_count(int **stack, size_t index)

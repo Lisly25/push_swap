@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 17:24:16 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 18:13:47 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,33 @@ int	get_moves_pb(t_stacks *stacks, size_t index)
 	ssize_t	b_min;
 	ssize_t	b_max;
 	int		moves;
-	ssize_t	next_smallest;
+	ssize_t	next_larger;
 
 	//printf("Error here?\n");
 	b_min = get_min(stacks->b);
 	b_max = get_max(stacks->b);
 	//printf("what is wrong? Stack a at index *%d* is %d\n", index, stacks->a[index][0]);
-	next_smallest = get_next_min(stacks->b, stacks->a[index][0]);
+	next_larger = get_next_larger(stacks->b, stacks->a[index][0]);
 	//printf("No error after get next min\n");
 	if (stacks->a[index][0] > stacks->b[b_max][0])
+	{
 		moves = move_count(stacks->b, b_max);
+		printf("We determined our num was bigger than anything in stack b\n");
+		printf("Num we are looking at is %d, we determined that we need to rotate b %d times to get it ready for num\n", stacks->a[index][0], moves);
+	}
 	else if (stacks->a[index][0] < stacks->b[b_min][0])
+	{
 		moves = move_count(stacks->b, b_max);
+		printf("We determined our num was smaller than anything in stack b\n");
+		printf("Num we are looking at is %d, we determined that we need to rotate b %d times to get it ready for num\n", stacks->a[index][0], moves);
+	}
 	else
-		moves = move_count(stacks->b, next_smallest);
+	{
+		moves = move_count(stacks->b, next_larger);
+		//printf("We just looked for the next larger num in stack b\n");
+	}
+	printf("B is currently:\n");
+	print_int_arr(stacks->b);
 	return (moves);
 }
 
@@ -123,10 +136,11 @@ void	sort_large(t_stacks *stacks, size_t size)
 		next_to_be_moved = get_cheapest_to_p_to_b(stacks);
 		stacks = move_a_to_b(stacks, next_to_be_moved);
 		size--;
-		//printf("Size of stack a according to non-function call counter is %d\n", size);
+		//printf("Stack B after push to b:\n");
+		//print_int_arr(stacks->b);
 	}
-	printf("Stack b after only 3 elements in stack a are left:\n");
-	print_int_arr(stacks->b);
+	//printf("Stack b after only 3 elements in stack a are left:\n");
+	//print_int_arr(stacks->b);
 	stacks = sort_last_3_large(stacks);
 	while (size != original_size)
 	{

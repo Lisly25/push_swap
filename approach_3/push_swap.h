@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 16:27:48 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:28:56 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ size_t		count_of_greater_than(int **a, int num, size_t count);
 
 size_t		range_count_of_g_t(int **a, int num, int start, int end);
 
-ssize_t		get_next_min(int **a, int prev_smallest);
+ssize_t		get_next_larger(int **a, int num);
 
 ssize_t		get_min(int **stack);
 

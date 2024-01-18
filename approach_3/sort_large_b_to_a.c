@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:24:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 17:08:17 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:36:34 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stacks	*move_b_to_a(t_stacks *stacks)
 
 	a_min = get_min(stacks->a);
 	a_max = get_max(stacks->a);
-	next_min = get_next_min(stacks->a, stacks->b[0][0]);
+	next_min = get_next_larger(stacks->a, stacks->b[0][0]);
 	if (stacks->b[0][0] > stacks->a[a_max][0])
 		moves = move_count(stacks->a, a_max);
 	if (stacks->b[0][0] < stacks->a[a_min][0])
