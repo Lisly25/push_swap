@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 15:21:39 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:05:06 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,10 @@ int			get_moves_pb(t_stacks *stacks, size_t index);
 
 int			combined_rotation_moves(t_stacks *stacks, size_t index);
 
-t_stacks	*sort_last_3(t_stacks *stacks);
+t_stacks	*sort_last_3_large(t_stacks *stacks);
+
+t_stacks	*move_a_to_b(t_stacks *stacks, size_t index);
+
+t_stacks	*move_b_to_a(t_stacks *stacks);
 
 #endif
