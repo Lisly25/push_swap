@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 15:21:11 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:00:33 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,28 @@ static ssize_t	get_cheapest_to_p_to_b(t_stacks *stacks)
 		i++;
 	}
 	return (cheapest_i);
+}
+
+static t_stacks	*rotate_final_a(t_stacks *stacks)
+{
+	size_t	min;
+	size_t	moves;
+
+	min = get_min(stacks->a);
+	moves = move_count(stacks->a, min);
+	while (moves < 0)
+	{
+		stacks = ft_rev_rotate_a(stacks);
+		ft_printf("rra\n");
+		moves++;
+	}
+	while (moves > 0)
+	{
+		stacks = ft_rotate_a(stacks);
+		ft_printf("ra\n");
+		moves++;
+	}
+	return (stacks);
 }
 
 void	sort_large(t_stacks *stacks, size_t size)
