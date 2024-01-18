@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 12:04:04 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:21:39 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ int			add_absolute_values(int rotates_src, int rotates_dest);
 int			get_moves_pb(t_stacks *stacks, size_t index);
 
 int			combined_rotation_moves(t_stacks *stacks, size_t index);
+
+t_stacks	*sort_last_3(t_stacks *stacks);
 
 #endif

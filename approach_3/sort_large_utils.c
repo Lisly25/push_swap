@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 12:04:21 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:23:40 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,3 @@ int	move_count(int **stack, size_t index)
 	else
 		return (index - stack_size);
 }
-//if reverse rotations are needed, returns a neg. number
