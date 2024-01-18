@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 16:09:44 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:20:04 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static ssize_t	get_cheapest_to_p_to_b(t_stacks *stacks)
 static t_stacks	*rotate_a_final(t_stacks *stacks)
 {
 	size_t	min;
-	size_t	moves;
+	int		moves;
 
 	min = get_min(stacks->a);
 	moves = move_count(stacks->a, min);
