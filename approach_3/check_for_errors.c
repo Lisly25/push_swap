@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:24:40 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/10 10:45:03 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 14:38:13 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ int	check_if_int(char *num)
 	number = ft_atoi(num);
 	num_2 = ft_itoa(number);
 	if (ft_strncmp(num, num_2, ft_strlen(num)) != 0)
+	{
+		free(num_2);
 		return (1);
+	}
+	free(num_2);
 	return (0);
 }
 
