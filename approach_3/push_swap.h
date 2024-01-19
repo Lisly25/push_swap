@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 15:20:11 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 15:33:06 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ size_t		get_arr_size(int **stack);
 
 void		get_sort_commands(t_stacks *stacks);
 
-char		*sort_3(int **a, size_t count);
-
-char		*sort_5(int **a, size_t count);
-
 void		sort_large(t_stacks *stacks, size_t size);
 
 int			check_for_errors(int **a);
@@ -50,10 +46,6 @@ int			check_for_errors(int **a);
 int			check_if_num(char *str);
 
 int			check_if_int(char *num);
-
-size_t		count_of_greater_than(int **a, int num, size_t count);
-
-size_t		range_count_of_g_t(int **a, int num, int start, int end);
 
 ssize_t		get_next_larger(int **stack, int num);
 
