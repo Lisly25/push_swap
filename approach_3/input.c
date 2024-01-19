@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/17 15:28:08 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 14:56:22 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,6 @@ int	**init_stack_b(int **stack_a)
 	if (stack_b == NULL)
 	{
 		free_stack(stack_a);
-		exit(1);
-	}
-	stack_b[0] = malloc(sizeof(int));
-	if (stack_b[0] == NULL)
-	{
-		free_stack(stack_a);
-		free(stack_b);
 		exit(1);
 	}
 	stack_b[0] = NULL;
