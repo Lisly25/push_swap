@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 12:52:46 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 13:57:28 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,5 @@ t_stacks	*sort_last_3_large(t_stacks *stacks);
 t_stacks	*move_a_to_b(t_stacks *stacks, size_t index);
 
 t_stacks	*move_b_to_a(t_stacks *stacks);
-
-void	print_int_arr(int **stack_a);//DELETE ME
 
 #endif

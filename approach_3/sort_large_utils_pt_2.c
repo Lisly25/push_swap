@@ -1,46 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   sort_large_utils_pt_2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 12:39:22 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 13:56:14 by skorbai          ###   ########.fr       */
+/*   Created: 2024/01/19 14:00:59 by skorbai           #+#    #+#             */
+/*   Updated: 2024/01/19 14:01:46 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(int **stack)
+int	add_absolute_values(int rotates_src, int rotates_dest)
 {
-	size_t	i;
-
-	i = 0;
-	if (stack != NULL)
-	{
-		while (stack[i] != NULL)
-			free(stack[i++]);
-		free(stack);
-	}
-}
-
-void	free_list(char **list)
-{
-	size_t	i;
-
-	i = 0;
-	while (list[i])
-		free(list[i++]);
-	free(list);
-}
-
-void	free_stacks_struct(t_stacks *stacks)
-{
-	if (stacks->a != NULL)
-		free_stack(stacks->a);
-	if (stacks->b != NULL)
-		free_stack(stacks->b);
-	free(stacks);
-	exit(1);
+	if (rotates_dest < 0)
+		rotates_dest = -rotates_dest;
+	if (rotates_src < 0)
+		rotates_src = -rotates_src;
+	return (rotates_dest + rotates_src);
 }
