@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/19 14:07:32 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/19 15:25:35 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,6 @@ SRCS = main.c \
 	check_for_errors.c \
 	get_sort_commands.c \
 	sort_3.c \
-	sort_5.c \
-	sort_small_utils.c \
 	sort_large.c \
 	sort_large_utils.c \
 	sort_large_utils_pt_2.c \
