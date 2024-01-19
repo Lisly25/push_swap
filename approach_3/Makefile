@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/19 14:01:33 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/19 14:07:32 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ all: $(NAME)
 
 $(LIBFT) :
 	make -C ./libft
+
+%.o: %.c
+	cc $(C_FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS) $(LIBFT)
 	cc $(C_FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
