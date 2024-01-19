@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 16:27:26 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 11:47:43 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	if (stacks->b == NULL)
 		free_stacks_struct(stacks);
 	get_sort_commands(stacks);
-	print_int_arr(stacks->a);
+	//print_int_arr(stacks->a);
 	free_stack(stacks->a);
 	free_stack(stacks->b);
 	free(stacks);

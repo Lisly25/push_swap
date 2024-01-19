@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 17:28:56 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 12:52:46 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ size_t		count_of_greater_than(int **a, int num, size_t count);
 
 size_t		range_count_of_g_t(int **a, int num, int start, int end);
 
-ssize_t		get_next_larger(int **a, int num);
+ssize_t		get_next_larger(int **stack, int num);
+
+ssize_t		get_one_smaller(int **stack, int prev_num);
 
 ssize_t		get_min(int **stack);
 
@@ -83,7 +85,7 @@ t_stacks	*ft_rr(t_stacks *stacks);
 
 t_stacks	*ft_rrr(t_stacks *stacks);
 
-int			move_count(int **stack, size_t index);
+int			move_count(int **stack, ssize_t index);
 
 void		free_stacks_struct(t_stacks *stacks);
 

@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:24:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 17:36:34 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 11:46:50 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,21 @@ t_stacks	*move_b_to_a(t_stacks *stacks)
 {
 	ssize_t	a_min;
 	ssize_t	a_max;
-	ssize_t	next_min;
-	size_t	moves;
+	ssize_t	next_larger;
+	int		moves;
 
 	a_min = get_min(stacks->a);
 	a_max = get_max(stacks->a);
-	next_min = get_next_larger(stacks->a, stacks->b[0][0]);
+	next_larger = get_next_larger(stacks->a, stacks->b[0][0]);
 	if (stacks->b[0][0] > stacks->a[a_max][0])
-		moves = move_count(stacks->a, a_max);
-	if (stacks->b[0][0] < stacks->a[a_min][0])
-		moves = move_count(stacks->a, a_max);
+		moves = move_count(stacks->a, a_min);
+	else if (stacks->b[0][0] < stacks->a[a_min][0])
+		moves = move_count(stacks->a, a_min);
 	else
-		moves = move_count(stacks->a, next_min);
-	if (moves >= 0)
+		moves = move_count(stacks->a, next_larger);
+	if (moves > 0)
 		stacks = pa_just_rotate_a(stacks, moves);
-	else
+	else if (moves < 0)
 		stacks = pa_just_rev_rotate_a(stacks, moves);
 	stacks = ft_push_to_a(stacks);
 	ft_printf("pa\n");

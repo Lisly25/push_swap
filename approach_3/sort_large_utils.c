@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/18 17:35:30 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/19 13:47:18 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,33 @@ ssize_t	get_max(int **stack)
 	return (max_index);
 }
 
+ssize_t	get_one_smaller(int **stack, int prev_num)
+{
+	int		next_smaller;
+	ssize_t	next_smaller_i;
+	size_t	i;
+	size_t	size;
+
+	next_smaller_i = get_min(stack);
+	next_smaller = stack[next_smaller_i][0];
+	size = get_arr_size(stack);
+	//printf("Smallest num in stack is %d, num the neighbour of which we're looking for is %d\n", next_smaller, prev_num);
+	i = 0;
+	while (i < size)
+	{
+		//printf("Segfault here?\n");
+		if (stack[i][0] < prev_num && stack[i][0] > next_smaller)
+		{
+			//printf("Stack at i:%d\n", stack[i][0]);
+			next_smaller = stack[i][0];
+			next_smaller_i = i;
+		}
+		i++;
+	}
+	//printf("If num is %d, the one just smaller than it is %d\n", prev_num, stack[next_smaller_i][0]);
+	return (next_smaller_i);
+}
+
 ssize_t	get_next_larger(int **stack, int num)
 {
 	int		next_larger;
@@ -90,13 +117,21 @@ ssize_t	get_next_larger(int **stack, int num)
 	return (next_larger_i);
 }
 
-int	move_count(int **stack, size_t index)
+int	move_count(int **stack, ssize_t index)
 {
 	size_t	stack_size;
+	int		stack_size_int;
+	int		index_int;
+	int		move_count;
 
 	stack_size = get_arr_size(stack);
-	if (index <= stack_size / 2)
-		return (index);
+	stack_size_int = (int)stack_size;
+	index_int = (int)index;
+	//printf("In move count, stack size is %d, index is %d\n", stack_size_int, index_int);
+	if (index_int <= (stack_size_int / 2))
+		move_count = index_int;
 	else
-		return (index - stack_size);
+		move_count = index_int - stack_size_int;
+	//printf("Move count is:%d\n", move_count);
+	return (move_count);
 }
