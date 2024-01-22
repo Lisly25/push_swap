@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/22 10:53:46 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 14:15:47 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ void		free_list(char **list);
 
 int			**init_stack_a(int argc, char **argv);
 
-int			**get_list(int argc, char **argv, int i);
-
-int			**get_str(char *str);
-
 int			**init_stack_b(int **stack_a);
 
 size_t		get_arr_size(int **stack);
@@ -44,8 +40,6 @@ void		get_sort_commands(t_stacks *stacks);
 void		sort_large(t_stacks *stacks, size_t size);
 
 int			check_for_errors(int **a);
-
-int			check_if_num(char *str);
 
 int			check_if_int(char *num);
 

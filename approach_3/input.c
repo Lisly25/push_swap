@@ -6,41 +6,13 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:49:45 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 14:56:22 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 14:15:01 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	**get_str(char *str)
-{
-	char	**list;
-	int		**stack_a;
-	int		arr_len;
-
-	arr_len = 0;
-	if (check_if_num(str) == 1)
-		return (NULL);
-	list = ft_split(str, ' ');
-	if (list == NULL)
-		return (NULL);
-	while (list[arr_len] != NULL)
-	{
-		if (check_if_int(list[arr_len]) == 1)
-		{
-			free_list(list);
-			return (NULL);
-		}
-		arr_len++;
-	}
-	stack_a = get_list(arr_len, list, 0);
-	free_list(list);
-	if (stack_a == NULL)
-		return (NULL);
-	return (stack_a);
-}
-
-int	**get_list(int argnum, char **argv, int i)
+static int	**get_list(int argnum, char **argv, int i)
 {
 	int	**stack_a;
 	int	j;
@@ -65,6 +37,32 @@ int	**get_list(int argnum, char **argv, int i)
 	while (i <= argnum)
 		stack_a[j++][0] = ft_atoi(argv[i++]);
 	stack_a[j] = NULL;
+	return (stack_a);
+}
+
+static int	**get_str(char *str)
+{
+	char	**list;
+	int		**stack_a;
+	int		arr_len;
+
+	arr_len = 0;
+	list = ft_split(str, ' ');
+	if (list == NULL)
+		return (NULL);
+	while (list[arr_len] != NULL)
+	{
+		if (check_if_int(list[arr_len]) == 1)
+		{
+			free_list(list);
+			return (NULL);
+		}
+		arr_len++;
+	}
+	stack_a = get_list(arr_len, list, 0);
+	free_list(list);
+	if (stack_a == NULL)
+		return (NULL);
 	return (stack_a);
 }
 
