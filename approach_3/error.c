@@ -6,12 +6,11 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 12:39:22 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 14:41:39 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 14:25:50 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	free_stack(int **stack)
 {
