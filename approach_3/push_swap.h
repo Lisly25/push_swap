@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 15:33:06 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 10:53:46 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include "libft/libft.h"
 # include <stdlib.h>
-# include "limits.h"
+
+# define MAX_VALUE 2147483647
+# define MIN_VALUE -2147483648
 
 typedef struct s_stacks
 {

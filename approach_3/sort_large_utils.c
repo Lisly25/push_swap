@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 14:01:42 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 10:53:14 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ssize_t	get_min(int **stack)
 
 	i = 0;
 	min_index = -1;
-	min = INT_MAX;
+	min = MAX_VALUE;
 	stack_size = get_arr_size(stack);
 	while (i < stack_size)
 	{
@@ -44,7 +44,7 @@ ssize_t	get_max(int **stack)
 
 	i = 0;
 	max_index = -1;
-	max = INT_MIN;
+	max = MIN_VALUE;
 	stack_size = get_arr_size(stack);
 	while (i < stack_size)
 	{
@@ -88,7 +88,7 @@ ssize_t	get_next_larger(int **stack, int num)
 	size_t	i;
 	size_t	size;
 
-	next_larger = INT_MAX;
+	next_larger = MAX_VALUE;
 	next_larger_i = -1;
 	size = get_arr_size(stack);
 	i = 0;

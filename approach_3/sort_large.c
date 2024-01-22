@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:15:36 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/19 15:23:49 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 10:53:29 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static ssize_t	get_cheapest_to_p_to_b(t_stacks *stacks)
 
 	i = 0;
 	cheapest_i = 0;
-	least_moves = INT_MAX;
+	least_moves = MAX_VALUE;
 	stack_a_size = get_arr_size(stacks->a);
 	while (i < stack_a_size)
 	{
