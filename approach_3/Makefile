@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/19 15:31:17 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/22 16:10:56 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,24 @@ SRCS = main.c \
 
 OBJS = $(SRCS:.c=.o)
 
+BONUS_SRCS = main_bonus.c \
+	input_bonus.c \
+	input_commands_bonus.c \
+	commands_doubles_bonus.c \
+	commands_stack_a_bonus.c \
+	commands_stack_b_bonus.c \
+	error_bonus.c \
+	check_for_errors_bonus.c \
+	vector_bonus.c \
+	test_commands_bonus.c
+
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
 LIBFT = libft/libft.a
 
 NAME = push_swap
+
+BONUS_NAME = checker
 
 all: $(NAME)
 
@@ -46,13 +61,22 @@ $(NAME) : $(OBJS) $(LIBFT)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(BONUS_OBJS)
+	@rm -f .bonus
 	make clean -C ./libft
 
 fclean: clean 
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 	make fclean -C ./libft
 
 re: fclean all
+
+bonus: .bonus
+
+.bonus: $(BONUS_OBJS) $(LIBFT)
+	cc $(C_FLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+	@touch .bonus
 
 my_make: all
 	make clean
