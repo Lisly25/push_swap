@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:29:50 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/23 11:24:18 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 13:40:40 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include "libft/libft.h"
-# include "vector_bonus.h"
 
 # define MAX_VALUE 2147483647
 # define MIN_VALUE -2147483648
@@ -66,8 +65,6 @@ t_stacks	*ft_rr(t_stacks *stacks);
 
 t_stacks	*ft_rrr(t_stacks *stacks);
 
-t_vector	*get_ps_commands(void);
-
-void		test_commands(t_stacks *stacks, t_vector *commands);
+void		test_commands(t_stacks *stacks);
 
 #endif

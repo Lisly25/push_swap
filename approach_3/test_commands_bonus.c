@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:17:30 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/22 15:54:41 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 13:35:36 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,22 +85,26 @@ static int	are_stacks_sorted(t_stacks *stacks)
 	return (0);
 }
 
-void	test_commands(t_stacks *stacks, t_vector *commands)
+void	test_commands(t_stacks *stacks)
 {
-	int		i;
-	size_t	n;
+	char	*command;
+	ssize_t	n;
 
-	i = 0;
-	while (commands->array[i] != NULL)
+	command = NULL;
+	n = -1;
+	while (command != NULL || n == -1)
 	{
-		n = ft_strlen(commands->array[i]);
-		if (check_if_real_command(commands->array[i], n) == 1)
+		command = get_next_line(0);
+		if (command == NULL)
+			break ;
+		n = ft_strlen(command);
+		if (check_if_real_command(command, n) == 1)
 		{
-			ft_printf("Error\n");
+			ft_putendl_fd("Error", 2);
 			return ;
 		}
-		stacks = run_ps_command(stacks, commands->array[i], n);
-		i++;
+		stacks = run_ps_command(stacks, command, n);
+		free(command);
 	}
 	if (are_stacks_sorted(stacks) == 0)
 		ft_printf("OK\n");

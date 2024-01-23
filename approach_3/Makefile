@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 11:43:32 by skorbai           #+#    #+#              #
-#    Updated: 2024/01/22 16:10:56 by skorbai          ###   ########.fr        #
+#    Updated: 2024/01/23 13:41:19 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,11 @@ OBJS = $(SRCS:.c=.o)
 
 BONUS_SRCS = main_bonus.c \
 	input_bonus.c \
-	input_commands_bonus.c \
 	commands_doubles_bonus.c \
 	commands_stack_a_bonus.c \
 	commands_stack_b_bonus.c \
 	error_bonus.c \
 	check_for_errors_bonus.c \
-	vector_bonus.c \
 	test_commands_bonus.c
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
