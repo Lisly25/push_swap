@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/22 14:15:47 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:19:14 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void		sort_large(t_stacks *stacks, size_t size);
 int			check_for_errors(int **a);
 
 int			check_if_int(char *num);
+
+int			is_empty_string(char *str);
 
 ssize_t		get_next_larger(int **stack, int num);
 

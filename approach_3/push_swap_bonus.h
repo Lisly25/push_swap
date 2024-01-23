@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:29:50 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/22 15:51:50 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:24:18 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void		free_list(char **list);
 void		free_stacks_struct(t_stacks *stacks);
 
 int			check_if_int(char *num);
+
+int			is_empty_string(char *str);
 
 int			check_for_errors(int **a);
 

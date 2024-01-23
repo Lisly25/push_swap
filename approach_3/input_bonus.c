@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:36:00 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/22 14:19:30 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:23:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,12 @@ int	**init_stack_a(int argc, char **argv)
 	if (argc < 1)
 		exit (1);
 	if (argc == 2)
-		stack_a = get_str(argv[1]);
+	{
+		if (is_empty_string(argv[1]) != 1)
+			stack_a = get_str(argv[1]);
+		else
+			return (NULL);
+	}
 	else
 	{
 		while (argv[i])
