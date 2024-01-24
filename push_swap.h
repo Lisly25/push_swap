@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:35:18 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 11:20:07 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:19:14 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,60 +15,82 @@
 
 # include "libft/libft.h"
 # include <stdlib.h>
-# include "limits.h"
 
-typedef struct s_sort_status {
-	ssize_t	pair_lower;
-	ssize_t	pair_higher;
-	ssize_t	prev_low;
-	ssize_t	prev_high;
-	size_t	real_size;
-	size_t	og_size;
-	char	prev_method;
-}	t_sort_status;
+# define MAX_VALUE 2147483647
+# define MIN_VALUE -2147483648
 
-void			free_stack(int **stack);
+typedef struct s_stacks
+{
+	int	**a;
+	int	**b;
+}	t_stacks;
 
-void			free_list(char **list);
+void		free_stack(int **stack);
 
-int				**init_stack_a(int argc, char **argv);
+void		free_list(char **list);
 
-int				**get_list(int argc, char **argv, int i);
+int			**init_stack_a(int argc, char **argv);
 
-int				**get_str(char *str);
+int			**init_stack_b(int **stack_a);
 
-int				**init_stack_b(int **stack_a);
+size_t		get_arr_size(int **stack);
 
-size_t			get_arr_size(int **stack);
+void		get_sort_commands(t_stacks *stacks);
 
-void			get_sort_commands(int **stack_a);
+void		sort_large(t_stacks *stacks, size_t size);
 
-char			*sort_3(int **a, size_t count);
+int			check_for_errors(int **a);
 
-char			*sort_5(int **a, size_t count);
+int			check_if_int(char *num);
 
-void			sort_large(int **a, size_t count);
+int			is_empty_string(char *str);
 
-int				check_for_errors(int **a);
+ssize_t		get_next_larger(int **stack, int num);
 
-int				check_if_num(char *str);
+ssize_t		get_one_smaller(int **stack, int prev_num);
 
-int				check_if_int(char *num);
+ssize_t		get_min(int **stack);
 
-size_t			count_of_greater_than(int **a, int num, size_t count);
+ssize_t		get_max(int **stack);
 
-size_t			range_count_of_g_t(int **a, int num, int start, int end);
+t_stacks	*ft_push_to_b(t_stacks *stacks);
 
-void			print_n_commands(char *command, int n);
+t_stacks	*ft_rev_rotate_a(t_stacks *stacks);
 
-ssize_t			get_next_min(int **a, size_t size, int prev_smallest);
+t_stacks	*ft_rotate_a(t_stacks *stacks);
 
-ssize_t			get_min(int **a, size_t count);
+t_stacks	*ft_push_to_a(t_stacks *stacks);
 
-t_sort_status	*init_sort_status(int **a, size_t size);
+t_stacks	*ft_rev_rotate_b(t_stacks *stacks);
 
-size_t			move_count(int **a, ssize_t index, t_sort_status *status);
+t_stacks	*ft_rotate_b(t_stacks *stacks);
 
-ssize_t			get_real_i(int **a, ssize_t index, t_sort_status *status);
+t_stacks	*ft_ss(t_stacks *stacks);
+
+t_stacks	*ft_swap_b(t_stacks *stacks);
+
+t_stacks	*ft_swap_a(t_stacks *stacks);
+
+t_stacks	*ft_rr(t_stacks *stacks);
+
+t_stacks	*ft_rrr(t_stacks *stacks);
+
+int			move_count(int **stack, ssize_t index);
+
+void		free_stacks_struct(t_stacks *stacks);
+
+int			add_absolute_values(int rotates_src, int rotates_dest);
+
+int			get_moves_pb(t_stacks *stacks, size_t index);
+
+int			combined_rotation_moves(t_stacks *stacks, size_t index);
+
+t_stacks	*sort_last_3_large(t_stacks *stacks);
+
+t_stacks	*move_a_to_b(t_stacks *stacks, size_t index);
+
+t_stacks	*move_b_to_a(t_stacks *stacks);
+
+t_stacks	*rotate_a_final(t_stacks *stacks);
 
 #endif

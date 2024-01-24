@@ -5,27 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 10:13:07 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/12 16:22:09 by skorbai          ###   ########.fr       */
+/*   Created: 2024/01/15 15:22:21 by skorbai           #+#    #+#             */
+/*   Updated: 2024/01/22 10:53:14 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-ssize_t	get_min(int **a, size_t count)
+ssize_t	get_min(int **stack)
 {
 	int		min;
 	ssize_t	min_index;
 	size_t	i;
+	size_t	stack_size;
 
 	i = 0;
 	min_index = -1;
-	min = INT_MAX;
-	while (i < count)
+	min = MAX_VALUE;
+	stack_size = get_arr_size(stack);
+	while (i < stack_size)
 	{
-		if (a[i][0] < min)
+		if (stack[i][0] < min)
 		{
-			min = a[i][0];
+			min = stack[i][0];
 			min_index = i;
 		}
 		i++;
@@ -33,65 +35,88 @@ ssize_t	get_min(int **a, size_t count)
 	return (min_index);
 }
 
-ssize_t	get_next_min(int **a, size_t size, int prev_smallest)
+ssize_t	get_max(int **stack)
 {
-	int		next_smallest;
-	ssize_t	next_smallest_i;
+	int		max;
+	ssize_t	max_index;
 	size_t	i;
+	size_t	stack_size;
 
-	next_smallest = INT_MAX;
-	next_smallest_i = -1;
 	i = 0;
-	if (prev_smallest == -1)
-		return (-1);
-	while (i < size)
+	max_index = -1;
+	max = MIN_VALUE;
+	stack_size = get_arr_size(stack);
+	while (i < stack_size)
 	{
-		if (a[i][0] > prev_smallest && a[i][0] < next_smallest)
+		if (stack[i][0] > max)
 		{
-			next_smallest = a[i][0];
-			next_smallest_i = i;
-			//printf("Next smallest num's index: %zu\n", next_smallest_i);
+			max = stack[i][0];
+			max_index = i;
 		}
 		i++;
 	}
-	return (next_smallest_i);
+	return (max_index);
 }
 
-void	print_n_commands(char *command, int n)
+ssize_t	get_one_smaller(int **stack, int prev_num)
 {
-	while (n != 0)
+	int		next_smaller;
+	ssize_t	next_smaller_i;
+	size_t	i;
+	size_t	size;
+
+	next_smaller_i = get_min(stack);
+	next_smaller = stack[next_smaller_i][0];
+	size = get_arr_size(stack);
+	i = 0;
+	while (i < size)
 	{
-		ft_printf("%s\n", command);
-		n--;
+		if (stack[i][0] < prev_num && stack[i][0] > next_smaller)
+		{
+			next_smaller = stack[i][0];
+			next_smaller_i = i;
+		}
+		i++;
 	}
-	return ;
+	return (next_smaller_i);
 }
 
-t_sort_status	*init_sort_status(int **a, size_t size)
+ssize_t	get_next_larger(int **stack, int num)
 {
-	t_sort_status	*status;
+	int		next_larger;
+	ssize_t	next_larger_i;
+	size_t	i;
+	size_t	size;
 
-	status = (t_sort_status *)malloc(sizeof(t_sort_status));
-	if (status == NULL)
-		return (NULL);
-	status->pair_lower = get_min(a, size);
-	status->pair_higher = get_next_min(a, size, a[status->pair_lower][0]);
-	status->prev_low = status->pair_lower;
-	status->prev_high = status->pair_higher;
-	status->real_size = size;
-	status->og_size = size;
-	status->prev_method = 'n';
-	return (status);
+	next_larger = MAX_VALUE;
+	next_larger_i = -1;
+	size = get_arr_size(stack);
+	i = 0;
+	while (i < size)
+	{
+		if (stack[i][0] > num && stack[i][0] < next_larger)
+		{
+			next_larger = stack[i][0];
+			next_larger_i = i;
+		}
+		i++;
+	}
+	return (next_larger_i);
 }
 
-size_t	move_count(int **a, ssize_t index, t_sort_status *status)
+int	move_count(int **stack, ssize_t index)
 {
-	ssize_t	real_index;
+	size_t	stack_size;
+	int		stack_size_int;
+	int		index_int;
+	int		move_count;
 
-	real_index = get_real_i(a, index, status);
-	//printf("(Move count:) Real index is calculated as : %zu\n", real_index);
-	if ((size_t)real_index <= (status->real_size / 2))
-		return (real_index);
+	stack_size = get_arr_size(stack);
+	stack_size_int = (int)stack_size;
+	index_int = (int)index;
+	if (index_int <= (stack_size_int / 2))
+		move_count = index_int;
 	else
-		return (status->real_size - real_index);
+		move_count = index_int - stack_size_int;
+	return (move_count);
 }

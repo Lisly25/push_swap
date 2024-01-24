@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:30:47 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/05 13:47:04 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:13:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,25 @@
 
 int	main(int argc, char **argv)
 {
-	int		**stack_a;
-	char	*result;
+	t_stacks	*stacks;
 
-	stack_a = init_stack_a(argc, argv);
-	if (stack_a == NULL)
+	stacks = (t_stacks *)malloc(sizeof(t_stacks));
+	if (stacks == NULL)
+		exit(1);
+	stacks->a = init_stack_a(argc, argv);
+	if (stacks->a == NULL)
 	{
-		ft_putendl_fd("Error", 2);
-		exit (1);
+		free(stacks);
+		exit(1);
 	}
-	if (check_for_errors(stack_a) == 1)
-		exit (1);
-	get_sort_commands(stack_a);
-	free_stack(stack_a);
+	if (check_for_errors(stacks->a) == 1)
+		exit(1);
+	stacks->b = init_stack_b(stacks->a);
+	if (stacks->b == NULL)
+		free_stacks_struct(stacks);
+	get_sort_commands(stacks);
+	free_stack(stacks->a);
+	free_stack(stacks->b);
+	free(stacks);
 	exit (0);
 }

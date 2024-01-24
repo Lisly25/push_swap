@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:57:49 by skorbai           #+#    #+#             */
-/*   Updated: 2023/12/15 12:22:29 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/22 11:02:40 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ static int	printf_format_putchar(char c)
 	return (len);
 }
 
-static int	print_all(va_list *original_args, char *str)
+static int	print_all(va_list *args, char *str)
 {
-	va_list	args;
 	int		len;
 	int		len_all;
 	int		i;
@@ -58,12 +57,11 @@ static int	print_all(va_list *original_args, char *str)
 	i = 0;
 	len = 0;
 	len_all = 0;
-	va_copy(args, *original_args);
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%' && str[i + 1] != '\0')
 		{
-			len = print_arg(args, str[++i]);
+			len = print_arg(*args, str[++i]);
 			i++;
 		}
 		else
@@ -72,7 +70,6 @@ static int	print_all(va_list *original_args, char *str)
 			return (-1);
 		len_all = len_all + len;
 	}
-	va_end(args);
 	return (len_all);
 }
 
