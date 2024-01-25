@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:17:30 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/23 13:35:36 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/25 11:08:18 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static int	are_stacks_sorted(t_stacks *stacks)
 	int	value;
 
 	i = 1;
+	if (get_arr_size(stacks->a) < 1)
+		return (1);
 	value = stacks->a[0][0];
 	if (stacks->b[0] != NULL)
 		return (1);

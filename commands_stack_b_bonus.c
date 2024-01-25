@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:31:25 by skorbai           #+#    #+#             */
-/*   Updated: 2024/01/22 14:36:38 by skorbai          ###   ########.fr       */
+/*   Updated: 2024/01/25 11:05:24 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 t_stacks	*ft_swap_b(t_stacks *stacks)
 {
-	int	temp;
+	int		temp;
+	size_t	arr_size;
 
+	arr_size = get_arr_size(stacks->b);
+	if (arr_size < 2)
+		return (stacks);
 	temp = stacks->b[0][0];
 	stacks->b[0][0] = stacks->b[1][0];
 	stacks->b[1][0] = temp;

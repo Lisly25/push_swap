@@ -65,7 +65,7 @@ This program is close to conforming to these requirements: for 500 elements, dep
 
 ***THE CHECKER PROGRAM***
 
-A bonus assignment was to create a checker program, that can read the given sorting instructions from the standard input, and determine if they'd result in the list being sorted (returns "OK") or not ("KO"). Additionally, it'd return "Error" if the inputted list of numbers is invalid, or an instruction was used that is not part of the push swap language. I made my version of this checker program: however, an incorrect sequence of instructions can result in a segmentation fault - this issue is yet to be corrected.
+A bonus assignment was to create a checker program, that can read the given sorting instructions from the standard input, and determine if they'd result in the list being sorted (returns "OK") or not ("KO"). Additionally, it'd return "Error" if the inputted list of numbers is invalid, or an instruction was used that is not part of the push swap language.
 
 ***How to use the checker program***
 
@@ -81,6 +81,6 @@ A bonus assignment was to create a checker program, that can read the given sort
 
 		./push.swap 4 5 1 2 3 | ./checker 4 5 1 2 3
 
-	5/a: Run it without the pipe, and then you can specify the sequence of commands by typing them into the terminal (seprarted by pressing enter). When you've done inputting the instructions, press control + D (in linux/mac OS)
+	5/a: Run it without the pipe, and then you can specify the sequence of commands by typing them into the terminal (seprarted by pressing enter). When you're done inputting the instructions, press control + D (in linux/mac OS)
 	
 		./cecker 4 5 1 2 3
